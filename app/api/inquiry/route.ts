@@ -4,22 +4,6 @@ import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { randomUUID } from "crypto";
 
-const region = process.env.APP_AWS_REGION ?? "us-east-1";
-
-// Amplify Lambda functions cannot use IAM role credentials automatically.
-// We use explicit credentials from env vars (renamed to avoid AWS_ prefix restriction).
-const credentials = process.env.APP_AWS_ACCESS_KEY_ID && process.env.APP_AWS_SECRET_ACCESS_KEY
-  ? {
-      accessKeyId: process.env.APP_AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.APP_AWS_SECRET_ACCESS_KEY,
-    }
-  : undefined;
-
-const clientConfig = { region, ...(credentials ? { credentials } : {}) };
-
-const dynamo = DynamoDBDocumentClient.from(new DynamoDBClient(clientConfig));
-const ses = new SESClient(clientConfig);
-
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -29,6 +13,31 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
+    // Read env vars inside the handler so they are available at runtime
+    const region = process.env.APP_AWS_REGION ?? "us-west-2";
+    const accessKeyId = process.env.APP_AWS_ACCESS_KEY_ID;
+    const secretAccessKey = process.env.APP_AWS_SECRET_ACCESS_KEY;
+    const tableName = process.env.DYNAMODB_TABLE_INQUIRIES;
+    const fromEmail = process.env.SES_FROM_EMAIL;
+
+    console.log("ENV RUNTIME CHECK:", {
+      region,
+      hasKey: !!accessKeyId,
+      hasSecret: !!secretAccessKey,
+      table: tableName ?? "NOT SET",
+      sesFrom: fromEmail ?? "NOT SET",
+    });
+
+    if (!accessKeyId || !secretAccessKey) {
+      return NextResponse.json({ error: "AWS credentials not configured" }, { status: 500 });
+    }
+
+    const credentials = { accessKeyId, secretAccessKey };
+    const clientConfig = { region, credentials };
+
+    const dynamo = DynamoDBDocumentClient.from(new DynamoDBClient(clientConfig));
+    const ses = new SESClient(clientConfig);
+
     const id = randomUUID();
     const createdAt = new Date().toISOString();
 
@@ -36,10 +45,11 @@ export async function POST(req: NextRequest) {
     try {
       await dynamo.send(
         new PutCommand({
-          TableName: process.env.DYNAMODB_TABLE_INQUIRIES,
+          TableName: tableName,
           Item: { id, name, email, company, message, serviceType, createdAt, status: "new" },
         })
       );
+      console.log("DynamoDB write succeeded, id:", id);
     } catch (dbErr) {
       console.error("DynamoDB error:", dbErr);
       return NextResponse.json(
@@ -49,25 +59,28 @@ export async function POST(req: NextRequest) {
     }
 
     // Send email via SES — failure does not block the response
-    try {
-      await ses.send(
-        new SendEmailCommand({
-          Source: process.env.SES_FROM_EMAIL!,
-          Destination: {
-            ToAddresses: [process.env.SES_NOTIFY_EMAIL ?? process.env.SES_FROM_EMAIL!],
-          },
-          Message: {
-            Subject: { Data: `New Consulting Inquiry from ${name}` },
-            Body: {
-              Text: {
-                Data: `Name: ${name}\nEmail: ${email}\nCompany: ${company || "N/A"}\nService: ${serviceType || "N/A"}\n\n${message}`,
+    if (fromEmail) {
+      try {
+        await ses.send(
+          new SendEmailCommand({
+            Source: fromEmail,
+            Destination: {
+              ToAddresses: [process.env.SES_NOTIFY_EMAIL ?? fromEmail],
+            },
+            Message: {
+              Subject: { Data: `New Consulting Inquiry from ${name}` },
+              Body: {
+                Text: {
+                  Data: `Name: ${name}\nEmail: ${email}\nCompany: ${company || "N/A"}\nService: ${serviceType || "N/A"}\n\n${message}`,
+                },
               },
             },
-          },
-        })
-      );
-    } catch (sesErr) {
-      console.error("SES error:", sesErr);
+          })
+        );
+        console.log("SES email sent");
+      } catch (sesErr) {
+        console.error("SES error (non-blocking):", sesErr);
+      }
     }
 
     return NextResponse.json({ success: true, id });
