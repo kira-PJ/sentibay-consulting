@@ -6,10 +6,19 @@ import { randomUUID } from "crypto";
 
 const region = process.env.APP_AWS_REGION ?? "us-east-1";
 
-const dynamo = DynamoDBDocumentClient.from(
-  new DynamoDBClient({ region })
-);
-const ses = new SESClient({ region });
+// Amplify Lambda functions cannot use IAM role credentials automatically.
+// We use explicit credentials from env vars (renamed to avoid AWS_ prefix restriction).
+const credentials = process.env.APP_AWS_ACCESS_KEY_ID && process.env.APP_AWS_SECRET_ACCESS_KEY
+  ? {
+      accessKeyId: process.env.APP_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.APP_AWS_SECRET_ACCESS_KEY,
+    }
+  : undefined;
+
+const clientConfig = { region, ...(credentials ? { credentials } : {}) };
+
+const dynamo = DynamoDBDocumentClient.from(new DynamoDBClient(clientConfig));
+const ses = new SESClient(clientConfig);
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,13 +32,6 @@ export async function POST(req: NextRequest) {
     const id = randomUUID();
     const createdAt = new Date().toISOString();
 
-    // Log env vars (values hidden) so we can confirm they are set
-    console.log("ENV CHECK:", {
-      region,
-      table: process.env.DYNAMODB_TABLE_INQUIRIES ?? "NOT SET",
-      sesFrom: process.env.SES_FROM_EMAIL ?? "NOT SET",
-    });
-
     // Save to DynamoDB
     try {
       await dynamo.send(
@@ -38,7 +40,6 @@ export async function POST(req: NextRequest) {
           Item: { id, name, email, company, message, serviceType, createdAt, status: "new" },
         })
       );
-      console.log("DynamoDB write succeeded");
     } catch (dbErr) {
       console.error("DynamoDB error:", dbErr);
       return NextResponse.json(
@@ -47,7 +48,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Send email via SES
+    // Send email via SES — failure does not block the response
     try {
       await ses.send(
         new SendEmailCommand({
@@ -65,9 +66,7 @@ export async function POST(req: NextRequest) {
           },
         })
       );
-      console.log("SES email sent");
     } catch (sesErr) {
-      // SES failure should not block the response — inquiry is already saved
       console.error("SES error:", sesErr);
     }
 
