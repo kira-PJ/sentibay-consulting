@@ -1,24 +1,29 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function CTABanner() {
   return (
-    <section className="relative bg-[#0a0f2e] py-24 px-6 text-white overflow-hidden">
-      {/* Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="relative max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold mb-4">
-          Ready to go deep on AWS?
-        </h2>
-        <p className="text-blue-200 text-lg mb-8 max-w-xl mx-auto">
-          Whether you're chasing your first cert, upskilling your team, or need someone to
-          help you architect something real, I'm here for it.
-        </p>
-        <Link href="/consulting"
-          className="inline-block bg-accent text-white font-semibold px-10 py-4 rounded-xl hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/30">
-          Get in Touch
-        </Link>
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#1E3A8A] to-[#0C4A6E] py-28 px-6">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="blob-1 absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#3B82F6]/20 blur-[100px]" />
+        <div className="blob-2 absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#059669]/15 blur-[90px]" />
       </div>
+      <ScrollReveal className="relative z-10 max-w-3xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-5 tracking-tight">
+          Ready to get certified?
+        </h2>
+        <p className="text-lg text-slate-300 mb-10 max-w-xl mx-auto leading-relaxed">
+          Whether you are preparing for your first AWS exam, upskilling your team, or need
+          cloud consulting support, we are here to help.
+        </p>
+        <Link
+          href="/consulting"
+          className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#1E3A8A] font-semibold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5 hover:shadow-xl"
+        >
+          Get in Touch <ArrowRight size={16} />
+        </Link>
+      </ScrollReveal>
     </section>
   );
 }

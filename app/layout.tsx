@@ -4,16 +4,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "KiraTech Hub | AWS Cloud Training & Consulting",
-  description:
-    "Expert AWS cloud training, certification prep, and consulting services by Pauline Namwakira — AWS Authorized Instructor & Cloud Solutions Architect.",
-  keywords: ["AWS training", "cloud consulting", "AWS certification", "KiraTech"],
+  title: "SentiBay Consulting | AWS Cloud Training & Consulting",
+  description: "Technology training and cloud consulting for professionals and teams worldwide. AWS certification prep, corporate training, and cloud architecture consulting.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen bg-white text-[#0F172A]">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

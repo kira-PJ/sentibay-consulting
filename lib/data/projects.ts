@@ -57,12 +57,12 @@ export const projects: Project[] = [
       "This workshop walks through a complete data engineering and ML workflow using Databricks on AWS. Part 1 covers environment setup, S3 bucket creation, cluster configuration, and instance profiles. Part 2 goes deeper into data preparation, sales forecasting, AutoML model development with Databricks Unity Catalog, and building dashboards in AWS QuickSight and Power BI.",
     videos: [
       {
-        title: "Databricks on AWS End to End Workshop Part 1 — Environment Setup",
+        title: "Databricks on AWS End to End Workshop Part 1: Environment Setup",
         duration: "19:56",
         url: "https://www.youtube.com/@kiratechhub",
       },
       {
-        title: "Databricks on AWS End to End Workshop Part 2 — ML, Forecasting and Visualization",
+        title: "Databricks on AWS End to End Workshop Part 2: ML, Forecasting and Visualization",
         duration: "46:17",
         url: "https://www.youtube.com/@kiratechhub",
       },

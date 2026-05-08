@@ -12,22 +12,98 @@ export type ExamPrepCourse = {
   code: string;
   level: string;
   outlineUrl?: string;
+  badgeUrl?: string;
+  certUrl?: string;
 };
 
 export const examPrepCourses: ExamPrepCourse[] = [
-  { name: "AWS Certified Cloud Practitioner", code: "CLF-C02", level: "Foundational" },
-  { name: "AWS Certified AI Practitioner", code: "AIF-C01", level: "Foundational", outlineUrl: "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/classroom-training/exam-prep-aws-certified-ai-practitioner-aif-c01.pdf" },
-  { name: "AWS Certified Solutions Architect Associate", code: "SAA-C03", level: "Associate" },
-  { name: "AWS Certified Developer Associate", code: "DVA-C02", level: "Associate" },
-  { name: "AWS Certified SysOps Administrator Associate", code: "SOA-C02", level: "Associate" },
-  { name: "AWS Certified Data Engineer Associate", code: "DEA-C01", level: "Associate", outlineUrl: "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/classroom-training/exam-prep-aws-certified-data-engineer-associate.pdf" },
-  { name: "AWS Certified Machine Learning Engineer Associate", code: "MLA-C01", level: "Associate", outlineUrl: "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/classroom-training/exam-prep-aws-certified-machine-learning-engineer-associate-mla-c01.pdf" },
-  { name: "AWS Certified CloudOps Engineer Associate", code: "COA-C02", level: "Associate" },
-  { name: "AWS Certified Solutions Architect Professional", code: "SAP-C02", level: "Professional" },
-  { name: "AWS Certified DevOps Engineer Professional", code: "DOP-C02", level: "Professional" },
-  { name: "AWS Certified Advanced Networking Specialty", code: "ANS-C01", level: "Specialty" },
-  { name: "AWS Certified Security Specialty", code: "SCS-C02", level: "Specialty" },
-  { name: "AWS Certified Generative AI Developer", code: "AID-C01", level: "Associate" },
+  {
+    name: "AWS Certified Cloud Practitioner",
+    code: "CLF-C02",
+    level: "Foundational",
+    badgeUrl: "https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+  },
+  {
+    name: "AWS Certified AI Practitioner",
+    code: "AIF-C01",
+    level: "Foundational",
+    outlineUrl: "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/classroom-training/exam-prep-aws-certified-ai-practitioner-aif-c01.pdf",
+    badgeUrl: "https://images.credly.com/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-ai-practitioner/",
+  },
+  {
+    name: "AWS Certified Solutions Architect Associate",
+    code: "SAA-C03",
+    level: "Associate",
+    badgeUrl: "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+  },
+  {
+    name: "AWS Certified Developer Associate",
+    code: "DVA-C02",
+    level: "Associate",
+    badgeUrl: "https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-developer-associate/",
+  },
+  {
+    name: "AWS Certified Data Engineer Associate",
+    code: "DEA-C01",
+    level: "Associate",
+    outlineUrl: "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/classroom-training/exam-prep-aws-certified-data-engineer-associate.pdf",
+    badgeUrl: "https://images.credly.com/images/e5c85d7f-4e50-431e-b5af-fa9d9b0596e7/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-data-engineer-associate/",
+  },
+  {
+    name: "AWS Certified Machine Learning Engineer Associate",
+    code: "MLA-C01",
+    level: "Associate",
+    outlineUrl: "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/training/approved/pdfs/classroom-training/exam-prep-aws-certified-machine-learning-engineer-associate-mla-c01.pdf",
+    badgeUrl: "https://images.credly.com/images/1a634b4e-3d6b-4a74-b118-c0dcb429e8d2/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
+  },
+  {
+    name: "AWS Certified CloudOps Engineer Associate",
+    code: "COA-C02",
+    level: "Associate",
+    badgeUrl: "https://images.credly.com/images/88a6405e-0f26-442a-95ed-f9b9db4c857e/blob",
+    certUrl: "https://aws.amazon.com/certification/certified-cloudops-engineer-associate/",
+  },
+  {
+    name: "AWS Certified Solutions Architect Professional",
+    code: "SAP-C02",
+    level: "Professional",
+    badgeUrl: "https://images.credly.com/images/2d84e428-9078-49b6-a804-13c15383d0de/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-solutions-architect-professional/",
+  },
+  {
+    name: "AWS Certified DevOps Engineer Professional",
+    code: "DOP-C02",
+    level: "Professional",
+    badgeUrl: "https://images.credly.com/images/bd31ef42-d460-493e-8503-39592aaf0458/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-devops-engineer-professional/",
+  },
+  {
+    name: "AWS Certified Generative AI Developer",
+    code: "AID-C01",
+    level: "Professional",
+    badgeUrl: "https://images.credly.com/images/52c6e5ac-9516-4944-a4df-e31b23c9bbf2/blob",
+    certUrl: "https://aws.amazon.com/certification/certified-generative-ai-developer-professional/",
+  },
+  {
+    name: "AWS Certified Advanced Networking Specialty",
+    code: "ANS-C01",
+    level: "Specialty",
+    badgeUrl: "https://images.credly.com/images/4d08274f-64c1-495e-986b-3143f51b1371/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-advanced-networking-specialty/",
+  },
+  {
+    name: "AWS Certified Security Specialty",
+    code: "SCS-C02",
+    level: "Specialty",
+    badgeUrl: "https://images.credly.com/images/53acdae5-d69f-4dda-b650-d02ed7a50dd7/image.png",
+    certUrl: "https://aws.amazon.com/certification/certified-security-specialty/",
+  },
 ];
 
 export const atpCourses: Course[] = [

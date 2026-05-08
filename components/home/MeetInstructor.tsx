@@ -4,8 +4,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function MeetInstructor() {
   return (
-    <section className="py-24 px-6 bg-gray-50">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section className="relative py-24 px-6 section-barrier-light">
+      <div className="absolute inset-0 bg-[#060a2e]/85" />
+      <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
         {/* Photo */}
         <ScrollReveal className="reveal-left">
@@ -14,7 +15,7 @@ export default function MeetInstructor() {
               <div className="w-72 h-72 rounded-full bg-gradient-to-br from-accent/20 to-cyan-400/10 blur-2xl" />
             </div>
             <div className="relative z-10 w-64 h-80 md:w-72 md:h-96 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
-              <img src="/images/pauline.jpg" alt="Pauline Namwakira, Lead Instructor"
+              <img src="/images/pauline2.jpg" alt="Pauline Namwakira, Lead Instructor"
                 className="w-full h-full object-cover object-top" />
             </div>
             <div className="absolute bottom-4 -right-2 bg-primary text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-lg z-20">
@@ -25,21 +26,21 @@ export default function MeetInstructor() {
 
         {/* Text */}
         <ScrollReveal className="reveal-right">
-          <span className="text-accent text-sm font-semibold uppercase tracking-widest">Meet the Instructor</span>
-          <h2 className="text-4xl font-bold text-primary mt-2 mb-5">Pauline Namwakira</h2>
-          <p className="text-muted text-lg leading-relaxed mb-4">
-            Pauline is an AWS Authorized Instructor and Cloud Solutions Architect with 5+ years
-            of experience delivering cloud training across banking, fintech, aviation, and energy sectors.
+          <span className="text-blue-400 text-sm font-semibold uppercase tracking-widest">Meet the Instructor</span>
+          <h2 className="text-4xl font-bold text-white mt-2 mb-5">Pauline Namwakira</h2>
+          <p className="text-blue-100/80 text-lg leading-relaxed mb-4">
+            Pauline is an AWS Authorized Instructor and Cloud Solutions Architect with 4+ years of experience
+            empowering professionals and organizations through tailored cloud training and solutions.
           </p>
-          <p className="text-muted leading-relaxed mb-6">
-            She has trained 500+ professionals, organized AWS Community Days in Kenya, and run
-            certification bootcamps across East Africa. She consistently achieves 100% pass rates
-            and currently delivers AWS training through Discoverer International.
+          <p className="text-blue-200/70 leading-relaxed mb-6">
+            With a focus on AWS services, Terraform, Python, and infrastructure reliability,
+            she has guided over 1000 professionals to achieve AWS certifications across banking,
+            fintech, aviation, and energy sectors globally.
           </p>
 
           <div className="flex flex-wrap gap-3 mb-8">
             {["Solutions Architect Pro", "DevOps Pro", "Security Specialty", "ML Specialty", "+5 more"].map((c) => (
-              <span key={c} className="bg-accent-light text-primary text-xs font-medium px-3 py-1.5 rounded-full border border-blue-100">
+              <span key={c} className="bg-white/10 text-blue-200 text-xs font-medium px-3 py-1.5 rounded-full border border-white/20">
                 {c}
               </span>
             ))}

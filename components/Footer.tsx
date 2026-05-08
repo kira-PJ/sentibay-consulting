@@ -1,38 +1,81 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Youtube, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white mt-20">
-      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between gap-8">
-        <div>
-          <div className="bg-white rounded-xl px-3 py-2 inline-block mb-3">
-            <img src="/images/logo.png" alt="KiraTechHub" className="h-8 w-auto object-contain" />
+    <footer className="bg-[#0F172A] text-white">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Brand */}
+          <div className="md:col-span-2">
+            <div className="mb-5">
+              <img
+                src="/images/sentibaydark.png"
+                alt="SentiBay Consulting"
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <p className="text-slate-400 leading-relaxed max-w-sm">
+              Technology training and cloud consulting for professionals and teams worldwide.
+            </p>
+            <div className="flex gap-3 mt-6">
+              <a
+                href="https://www.youtube.com/@kiratechhub"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/5 transition-all"
+              >
+                <Youtube size={16} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/paulinenamwakira/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/25 hover:bg-white/5 transition-all"
+              >
+                <Linkedin size={16} />
+              </a>
+            </div>
           </div>
-          <p className="text-blue-200 text-sm max-w-xs">
-            AWS cloud training, certification prep, and consulting for individuals and enterprise teams.
-          </p>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-white font-semibold text-sm mb-4">Quick Links</h3>
+            <ul className="flex flex-col gap-2.5 text-sm">
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About Us" },
+                { href: "/courses", label: "Exam Prep Courses" },
+                { href: "/training", label: "Corporate Training" },
+                { href: "/consulting", label: "Consulting" },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href} className="text-slate-400 hover:text-white transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-white font-semibold text-sm mb-4">Services</h3>
+            <ul className="flex flex-col gap-2.5 text-sm text-slate-400">
+              <li>AWS Certification Prep</li>
+              <li>Corporate Cloud Training</li>
+              <li>Cloud Consulting</li>
+              <li>Generative AI on AWS</li>
+            </ul>
+          </div>
         </div>
-        <div className="flex flex-col gap-2 text-sm text-blue-200">
-          <Link href="/courses" className="hover:text-white">Courses</Link>
-          <Link href="/projects" className="hover:text-white">Projects</Link>
-          <Link href="/training" className="hover:text-white">Corporate Training</Link>
-          <Link href="/consulting" className="hover:text-white">Consulting</Link>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 pt-8 text-center text-sm text-slate-500">
+          © {new Date().getFullYear()} SentiBay Consulting. All rights reserved.
         </div>
-        <div className="flex gap-4 items-start">
-          <a href="https://www.youtube.com/@kiratechhub" target="_blank" rel="noopener noreferrer"
-            className="text-blue-200 hover:text-white" aria-label="YouTube">
-            <Youtube size={22} />
-          </a>
-          <a href="https://www.linkedin.com/in/paulinenamwakira/" target="_blank" rel="noopener noreferrer"
-            className="text-blue-200 hover:text-white" aria-label="LinkedIn">
-            <Linkedin size={22} />
-          </a>
-        </div>
-      </div>
-      <div className="border-t border-blue-800 text-center text-xs text-blue-300 py-4">
-        © {new Date().getFullYear()} KiraTechHub. All rights reserved.
       </div>
     </footer>
   );

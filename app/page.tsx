@@ -1,8 +1,8 @@
 import Hero from "@/components/home/Hero";
-import Services from "@/components/home/Services";
-import MeetInstructor from "@/components/home/MeetInstructor";
-import FeaturedProjects from "@/components/home/FeaturedProjects";
-import Certifications from "@/components/home/Certifications";
+import Partners from "@/components/home/Partners";
+import TrainingOptions from "@/components/home/TrainingOptions";
+import Webinars from "@/components/home/Webinars";
+import Differentiators from "@/components/home/Differentiators";
 import Testimonials from "@/components/home/Testimonials";
 import CTABanner from "@/components/home/CTABanner";
 
@@ -10,10 +10,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Services />
-      <MeetInstructor />
-      <FeaturedProjects />
-      <Certifications />
+      <Partners />
+      <TrainingOptions />
+      <Webinars />
+      <Differentiators />
       <Testimonials />
       <CTABanner />
     </>

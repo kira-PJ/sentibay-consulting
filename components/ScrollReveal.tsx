@@ -1,14 +1,19 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, ReactNode } from "react";
 
-export default function ScrollReveal({ children, className = "", delay = 0 }:
-  { children: React.ReactNode; className?: string; delay?: number }) {
+interface Props {
+  children: ReactNode;
+  className?: string;
+  direction?: "up" | "left" | "right";
+  delay?: number;
+}
+
+export default function ScrollReveal({ children, className = "", direction = "up", delay = 0 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -18,13 +23,14 @@ export default function ScrollReveal({ children, className = "", delay = 0 }:
       },
       { threshold: 0.12 }
     );
-
     observer.observe(el);
     return () => observer.disconnect();
   }, [delay]);
 
+  const cls = direction === "left" ? "reveal-left" : direction === "right" ? "reveal-right" : "reveal";
+
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div ref={ref} className={`${cls} ${className}`}>
       {children}
     </div>
   );

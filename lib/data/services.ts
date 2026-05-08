@@ -7,7 +7,7 @@ export const services = [
   {
     title: "AWS Certification Training",
     description:
-      "One-on-one or group prep for any AWS certification — from Cloud Practitioner to Professional tracks.",
+      "One-on-one or group prep for any AWS certification, from Cloud Practitioner to Professional tracks.",
   },
   {
     title: "Corporate Team Training",
@@ -22,6 +22,6 @@ export const services = [
   {
     title: "FinOps & Cost Optimization",
     description:
-      "Identify and eliminate cloud waste — rightsizing, reserved capacity planning, and tagging strategies.",
+      "Identify and eliminate cloud waste. Rightsizing, reserved capacity planning, and tagging strategies.",
   },
 ];
