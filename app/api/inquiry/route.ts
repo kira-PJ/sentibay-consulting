@@ -5,9 +5,9 @@ import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { randomUUID } from "crypto";
 
 const dynamo = DynamoDBDocumentClient.from(
-  new DynamoDBClient({ region: process.env.AWS_REGION })
+  new DynamoDBClient({ region: process.env.APP_AWS_REGION ?? "us-east-1" })
 );
-const ses = new SESClient({ region: process.env.AWS_REGION });
+const ses = new SESClient({ region: process.env.APP_AWS_REGION ?? "us-east-1" });
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
