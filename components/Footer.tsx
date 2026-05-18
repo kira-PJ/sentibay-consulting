@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Youtube, Linkedin } from "lucide-react";
+import { Youtube, Linkedin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -68,6 +68,28 @@ export default function Footer() {
               <li>Corporate Cloud Training</li>
               <li>Cloud Consulting</li>
               <li>Generative AI on AWS</li>
+            </ul>
+
+            <h3 className="text-white font-semibold text-sm mt-8 mb-4">Contact</h3>
+            <ul className="flex flex-col gap-3 text-sm">
+              <li>
+                <a
+                  href="mailto:hello@sentibay.com"
+                  className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                >
+                  <Mail size={14} className="shrink-0" />
+                  hello@sentibay.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+254792730128"
+                  className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                >
+                  <Phone size={14} className="shrink-0" />
+                  +254 792 730 128
+                </a>
+              </li>
             </ul>
           </div>
         </div>

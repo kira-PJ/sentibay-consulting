@@ -1,6 +1,6 @@
 import ConsultingForm from "@/components/ConsultingForm";
 import { services } from "@/lib/data/services";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Mail, Phone } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function ConsultingPage() {
@@ -47,6 +47,33 @@ export default function ConsultingPage() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Contact details */}
+            <div className="mt-10 pt-8 border-t border-gray-200">
+              <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">
+                Reach us directly
+              </h3>
+              <div className="flex flex-col gap-3">
+                <a
+                  href="mailto:hello@sentibay.com"
+                  className="inline-flex items-center gap-3 text-slate-700 hover:text-[#1E3A8A] transition-colors group"
+                >
+                  <span className="w-9 h-9 rounded-xl bg-[#EFF6FF] flex items-center justify-center group-hover:bg-[#1E3A8A]/10 transition-colors">
+                    <Mail size={16} className="text-[#3B82F6]" />
+                  </span>
+                  <span className="font-medium">hello@sentibay.com</span>
+                </a>
+                <a
+                  href="tel:+254792730128"
+                  className="inline-flex items-center gap-3 text-slate-700 hover:text-[#1E3A8A] transition-colors group"
+                >
+                  <span className="w-9 h-9 rounded-xl bg-[#EFF6FF] flex items-center justify-center group-hover:bg-[#1E3A8A]/10 transition-colors">
+                    <Phone size={16} className="text-[#3B82F6]" />
+                  </span>
+                  <span className="font-medium">+254 792 730 128</span>
+                </a>
+              </div>
             </div>
           </ScrollReveal>
 
