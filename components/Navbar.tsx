@@ -46,9 +46,15 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
+          <a
+            href="https://learn.sentibay.com"
+            className="ml-2 bg-[#059669] hover:bg-[#047857] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-150 shadow-sm hover:shadow-md hover:-translate-y-px"
+          >
+            Start Learning
+          </a>
           <Link
             href="/consulting"
-            className="ml-3 bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-150 shadow-sm hover:shadow-md hover:-translate-y-px"
+            className="ml-1 bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-150 shadow-sm hover:shadow-md hover:-translate-y-px"
           >
             Get in Touch
           </Link>
@@ -77,10 +83,17 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
+          <a
+            href="https://learn.sentibay.com"
+            onClick={() => setOpen(false)}
+            className="mt-2 bg-[#059669] text-white text-sm font-semibold px-5 py-3 rounded-xl text-center"
+          >
+            Start Learning
+          </a>
           <Link
             href="/consulting"
             onClick={() => setOpen(false)}
-            className="mt-2 bg-[#1E3A8A] text-white text-sm font-semibold px-5 py-3 rounded-xl text-center"
+            className="mt-1 bg-[#1E3A8A] text-white text-sm font-semibold px-5 py-3 rounded-xl text-center"
           >
             Get in Touch
           </Link>
