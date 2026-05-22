@@ -4,17 +4,17 @@ import { Play, Youtube } from "lucide-react";
 const videos = [
   {
     id: "dQw4w9WgXcQ", // replace with real YouTube video IDs
-    title: "AWS Multi-VPC Setup – Transit Gateway Hands On",
+    title: "AWS Multi-VPC Setup: Transit Gateway Hands On",
     topic: "Networking",
   },
   {
     id: "dQw4w9WgXcQ",
-    title: "Clouds Aren't Just for Rain – Welcome to AWS Cloud 101",
+    title: "Clouds Aren't Just for Rain: Welcome to AWS Cloud 101",
     topic: "Module #1",
   },
   {
     id: "dQw4w9WgXcQ",
-    title: "Mastering AWS IAM – I Am Who I Say I Am",
+    title: "Mastering AWS IAM: I Am Who I Say I Am",
     topic: "Module #3",
   },
   {

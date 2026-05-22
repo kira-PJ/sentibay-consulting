@@ -34,7 +34,7 @@ const options = [
     title: "Self-Paced Exam Prep",
     description:
       "Structured course outlines, practice questions, and direct access to your instructor. Study at your own pace.",
-    href: "/courses",
+    href: "https://learn.sentibay.com/courses",
     photo: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80&auto=format&fit=crop",
     photoAlt: "Student studying for AWS certification",
     accent: "#0D9488",
@@ -89,9 +89,14 @@ export default function TrainingOptions() {
                   <h3 className="text-xl font-semibold text-slate-900 mb-3">{title}</h3>
                   <p className="text-slate-600 leading-relaxed flex-1 mb-5">{description}</p>
                   {comingSoon ? (
-                    <div className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600">
-                      <Clock size={14} /> Coming Soon
-                    </div>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors"
+                    >
+                      <Clock size={14} /> Coming Soon &middot; View Courses
+                    </a>
                   ) : (
                     <Link
                       href={href}

@@ -13,22 +13,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Read env vars inside the handler so they are available at runtime
+    // Read env vars — using APP_AWS_* prefix to avoid conflict with Amplify reserved vars
     const region = process.env.APP_AWS_REGION ?? "us-west-2";
     const accessKeyId = process.env.APP_AWS_ACCESS_KEY_ID;
     const secretAccessKey = process.env.APP_AWS_SECRET_ACCESS_KEY;
     const tableName = process.env.DYNAMODB_TABLE_INQUIRIES;
     const fromEmail = process.env.SES_FROM_EMAIL;
-
-    console.log("ENV RUNTIME CHECK:", {
-      region,
-      hasKey: !!accessKeyId,
-      hasSecret: !!secretAccessKey,
-      table: tableName ?? "NOT SET",
-      sesFrom: fromEmail ?? "NOT SET",
-    });
+    const notifyEmail = process.env.SES_NOTIFY_EMAIL ?? fromEmail;
 
     if (!accessKeyId || !secretAccessKey) {
+      console.error("AWS credentials not configured");
       return NextResponse.json({ error: "AWS credentials not configured" }, { status: 500 });
     }
 
@@ -58,14 +52,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Send email via SES — failure does not block the response
+    // Send email via SES
     if (fromEmail) {
       try {
         await ses.send(
           new SendEmailCommand({
             Source: fromEmail,
             Destination: {
-              ToAddresses: [process.env.SES_NOTIFY_EMAIL ?? fromEmail],
+              ToAddresses: [notifyEmail!],
             },
             Message: {
               Subject: { Data: `New Consulting Inquiry from ${name}` },
@@ -77,10 +71,13 @@ export async function POST(req: NextRequest) {
             },
           })
         );
-        console.log("SES email sent");
+        console.log("SES email sent to", notifyEmail);
       } catch (sesErr) {
-        console.error("SES error (non-blocking):", sesErr);
+        // Log but don't block — inquiry is already saved to DB
+        console.error("SES error:", sesErr);
       }
+    } else {
+      console.warn("SES_FROM_EMAIL not set — skipping email notification");
     }
 
     return NextResponse.json({ success: true, id });
