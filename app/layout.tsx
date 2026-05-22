@@ -21,12 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-HVWWGE38NP" strategy="afterInteractive" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-LRTNCFT7TS" strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-HVWWGE38NP');`}
+          gtag('config', 'G-LRTNCFT7TS');`}
         </Script>
       </head>
       <body className="flex flex-col min-h-screen bg-white text-[#0F172A]">
