@@ -20,7 +20,7 @@ const items = [
     iconName: "TrendingUp",
     title: "Proven Pass Rates",
     description:
-      "Our students consistently pass AWS certification exams on their first attempt. We maintain an average pass rate of 93% and an average student rating of 4.9 out of 5.",
+      "Our students consistently pass AWS certification exams on their first attempt. We maintain a customer satisfaction score of 4.8 out of 5 across all our training programs.",
   },
   {
     iconName: "Briefcase",
