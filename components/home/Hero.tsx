@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Users, Award, Globe, TrendingUp } from "lucide-react";
 import HeroWave from "./HeroWave";
+import AnimatedStat from "./AnimatedStat";
 
 const stats = [
   { icon: Users,      value: "1,000+", label: "Students Trained" },
@@ -112,15 +113,12 @@ export default function Hero() {
         {/* ── Stats bar ── */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-200 rounded-2xl overflow-hidden border border-slate-200">
           {stats.map(({ icon: Icon, value, label }) => (
-            <div key={label} className="bg-white hover:bg-slate-50 transition-colors px-8 py-6 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center shrink-0">
-                <Icon size={18} className="text-[#3B82F6]" />
-              </div>
-              <div>
-                <div className="text-2xl font-extrabold text-[#0F172A] leading-none">{value}</div>
-                <div className="text-xs text-slate-500 mt-0.5">{label}</div>
-              </div>
-            </div>
+            <AnimatedStat
+              key={label}
+              value={value}
+              label={label}
+              icon={<Icon size={18} className="text-[#3B82F6]" />}
+            />
           ))}
         </div>
       </div>

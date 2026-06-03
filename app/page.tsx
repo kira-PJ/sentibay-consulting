@@ -5,6 +5,7 @@ import Webinars from "@/components/home/Webinars";
 import Differentiators from "@/components/home/Differentiators";
 import Testimonials from "@/components/home/Testimonials";
 import CTABanner from "@/components/home/CTABanner";
+import MobileStickyBar from "@/components/home/MobileStickyBar";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Differentiators />
       <Testimonials />
       <CTABanner />
+      <MobileStickyBar />
     </>
   );
 }
