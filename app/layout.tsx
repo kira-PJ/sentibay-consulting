@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   description: "Technology training and cloud consulting for professionals and teams worldwide. AWS certification prep, corporate training, and cloud architecture consulting delivered globally by AWS Authorized Instructors.",
   metadataBase: new URL("https://sentibay.com"),
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "SentiBay Consulting | AWS Cloud Training & Consulting",
