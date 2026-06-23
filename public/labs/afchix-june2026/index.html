@@ -421,8 +421,161 @@
     </div>
 
     <div class="info">
-        <strong>🍎 Mac Users:</strong> The .rdp file opens in Microsoft Remote Desktop (install from App Store beforehand). Enter Administrator and the password when prompted.<br><br>
-        <strong>🐧 Linux Users:</strong> Open Remmina, select RDP, enter your instance's Public IP, username: Administrator, password: the decrypted one.
+        <strong>🖥️ Windows users:</strong> The steps above are for you — continue to Step 5.
+    </div>
+</div>
+
+<!-- STEP 4 MAC -->
+<div class="step">
+    <h2>Step 4 (Mac): Connect from a Mac</h2>
+    <p>If you're using a Mac, follow these steps instead of the Windows RDP instructions above.</p>
+
+    <h3>4M.1 Install Microsoft Remote Desktop</h3>
+    <ol>
+        <li>Open the <strong>App Store</strong> on your Mac (the blue "A" icon in your dock)</li>
+        <li>Search for <strong>"Microsoft Remote Desktop"</strong></li>
+        <li>Click <strong>Get</strong> then <strong>Install</strong> (it's free)</li>
+        <li>Wait for it to download and install</li>
+    </ol>
+    <div class="screenshot">
+        <img src="screenshots/step4-mac-appstore.png" alt="Microsoft Remote Desktop in App Store">
+        <p>Install Microsoft Remote Desktop from the Mac App Store</p>
+    </div>
+    <div class="warning">
+        ⚠️ <strong>Do this BEFORE the workshop!</strong> App Store downloads can be slow on shared wifi.
+    </div>
+
+    <h3>4M.2 Get Your Password (Same as Windows)</h3>
+    <ol>
+        <li>In the AWS Console, select your instance</li>
+        <li>Click <strong>"Actions"</strong> > <strong>"Security"</strong> > <strong>"Get Windows password"</strong></li>
+        <li>Click <strong>"Upload private key file"</strong> and select your <code>.pem</code> file from Downloads</li>
+        <li>Click <strong>"Decrypt password"</strong></li>
+        <li><strong>Copy the password</strong> (Cmd+C)</li>
+    </ol>
+
+    <h3>4M.3 Connect Using the .rdp File</h3>
+    <ol>
+        <li>In the AWS Console, click <strong>"Connect"</strong> > <strong>"RDP client"</strong> tab</li>
+        <li>Click <strong>"Download remote desktop file"</strong></li>
+        <li>The <code>.rdp</code> file downloads to your <strong>Downloads</strong> folder</li>
+        <li>Double-click the <code>.rdp</code> file — it opens in Microsoft Remote Desktop</li>
+    </ol>
+    <div class="screenshot">
+        <img src="screenshots/step4-mac-rdp-open.png" alt="Opening RDP file on Mac">
+        <p>Double-click the .rdp file to open it in Microsoft Remote Desktop</p>
+    </div>
+
+    <h3>4M.4 Enter Credentials</h3>
+    <ol>
+        <li>A login window appears asking for credentials</li>
+        <li>Username: <code>Administrator</code></li>
+        <li>Password: <strong>paste the password you copied</strong> (Cmd+V)</li>
+        <li>Click <strong>"Continue"</strong></li>
+    </ol>
+    <div class="screenshot">
+        <img src="screenshots/step4-mac-credentials.png" alt="Mac RDP credentials">
+        <p>Enter Administrator and paste your password</p>
+    </div>
+
+    <h3>4M.5 Accept the Certificate</h3>
+    <ol>
+        <li>You'll see a warning: "The certificate could not be verified..."</li>
+        <li>Click <strong>"Continue"</strong> — this is safe, you just created this machine</li>
+    </ol>
+    <div class="screenshot">
+        <img src="screenshots/step4-mac-certificate.png" alt="Mac certificate warning">
+        <p>Click Continue — this is normal for new instances</p>
+    </div>
+
+    <div class="success">
+        🎉 <strong>You should now see the Windows desktop in a window on your Mac!</strong> You can resize it, go full screen (green button), or use Cmd+F to toggle.
+    </div>
+    <div class="screenshot">
+        <img src="screenshots/step4-mac-connected.png" alt="Windows desktop on Mac">
+        <p>Windows running inside a window on your Mac!</p>
+    </div>
+
+    <h3>Helpful Mac Tips</h3>
+    <ul>
+        <li><strong>Copy/Paste between Mac and Windows:</strong> Cmd+C on Mac, then Ctrl+V inside the Windows session</li>
+        <li><strong>Full screen:</strong> Click the green circle (top-left of window) or use Cmd+F</li>
+        <li><strong>Exit full screen:</strong> Move mouse to top of screen, click the green circle again</li>
+        <li><strong>Right-click:</strong> Two-finger tap on trackpad, or Ctrl+click</li>
+    </ul>
+</div>
+
+<!-- STEP 4 LINUX -->
+<div class="step">
+    <h2>Step 4 (Linux): Connect from Linux</h2>
+    <p>If you're using Ubuntu, Fedora, or another Linux distro, follow these steps.</p>
+
+    <h3>4L.1 Install Remmina (if not already installed)</h3>
+    <p>Remmina is pre-installed on most Ubuntu systems. If not:</p>
+    <pre>sudo apt install remmina remmina-plugin-rdp</pre>
+    <p>On Fedora:</p>
+    <pre>sudo dnf install remmina remmina-plugins-rdp</pre>
+
+    <h3>4L.2 Get Your Password (Same as Windows/Mac)</h3>
+    <ol>
+        <li>In the AWS Console, select your instance</li>
+        <li>Click <strong>"Actions"</strong> > <strong>"Security"</strong> > <strong>"Get Windows password"</strong></li>
+        <li>Upload your <code>.pem</code> file and click <strong>"Decrypt password"</strong></li>
+        <li><strong>Copy the password</strong></li>
+    </ol>
+
+    <h3>4L.3 Connect with Remmina</h3>
+    <ol>
+        <li>Open <strong>Remmina</strong> from your applications menu</li>
+        <li>In the top bar, select <strong>RDP</strong> from the protocol dropdown</li>
+        <li>In the address field, paste your instance's <strong>Public IPv4 address</strong></li>
+        <li>Press <strong>Enter</strong> to connect</li>
+    </ol>
+    <div class="screenshot">
+        <img src="screenshots/step4-linux-remmina.png" alt="Remmina RDP connection">
+        <p>Enter your instance's public IP in Remmina</p>
+    </div>
+
+    <h3>4L.4 Enter Credentials</h3>
+    <ol>
+        <li>Username: <code>Administrator</code></li>
+        <li>Password: <strong>paste the decrypted password</strong></li>
+        <li>Domain: leave blank</li>
+        <li>Click <strong>OK</strong> or <strong>Connect</strong></li>
+    </ol>
+    <div class="screenshot">
+        <img src="screenshots/step4-linux-credentials.png" alt="Linux RDP credentials">
+        <p>Enter Administrator and your password</p>
+    </div>
+
+    <h3>4L.5 Accept the Certificate</h3>
+    <ol>
+        <li>You'll see a certificate warning</li>
+        <li>Click <strong>"Yes"</strong> or <strong>"Accept"</strong></li>
+    </ol>
+
+    <div class="success">
+        🎉 <strong>You should now see the Windows desktop inside Remmina!</strong>
+    </div>
+
+    <h3>Alternative: Using xfreerdp (command line)</h3>
+    <p>If Remmina doesn't work, you can connect via terminal:</p>
+    <pre>xfreerdp /v:YOUR-PUBLIC-IP /u:Administrator /p:'YOUR-PASSWORD' /size:1280x720</pre>
+    <p>Replace <code>YOUR-PUBLIC-IP</code> and <code>YOUR-PASSWORD</code> with your actual values.</p>
+
+    <h3>Helpful Linux Tips</h3>
+    <ul>
+        <li><strong>Copy/Paste:</strong> Ctrl+C on Linux, then Ctrl+V inside the Windows session</li>
+        <li><strong>Full screen:</strong> Press Ctrl+Shift+F in Remmina</li>
+        <li><strong>Exit full screen:</strong> Press Ctrl+Shift+F again</li>
+        <li><strong>If connection fails:</strong> Make sure the instance's security group allows port 3389 from your IP</li>
+    </ul>
+</div>
+
+<!-- Continue to Step 5 note -->
+<div class="step">
+    <div class="info">
+        <strong>✅ Connected?</strong> Whether you used Windows, Mac, or Linux — you should now be looking at a Windows Server desktop. Continue to <strong>Step 5</strong> below. The remaining steps are the same for everyone.
     </div>
 </div>
 
