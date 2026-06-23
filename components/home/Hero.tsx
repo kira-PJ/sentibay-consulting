@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Users, Award, Globe, TrendingUp } from "lucide-react";
 import HeroWave from "./HeroWave";
-import AnimatedStat from "./AnimatedStat";
 
 const stats = [
   { icon: Users,      value: "1,000+", label: "Students Trained" },
@@ -58,17 +57,17 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4">
+              <a
+                href="https://learn.sentibay.com"
+                className="inline-flex items-center gap-2 bg-[#059669] hover:bg-[#047857] text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/20 hover:-translate-y-0.5"
+              >
+                Start Learning <ArrowRight size={16} />
+              </a>
               <Link
                 href="/consulting"
                 className="inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#1e40af] text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-blue-900/20 hover:-translate-y-0.5"
               >
-                Start Learning <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/courses"
-                className="inline-flex items-center gap-2 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 font-medium px-7 py-3.5 rounded-xl transition-all duration-200"
-              >
-                Browse Courses
+                Contact Us
               </Link>
             </div>
           </div>
@@ -113,12 +112,15 @@ export default function Hero() {
         {/* ── Stats bar ── */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-200 rounded-2xl overflow-hidden border border-slate-200">
           {stats.map(({ icon: Icon, value, label }) => (
-            <AnimatedStat
-              key={label}
-              value={value}
-              label={label}
-              icon={<Icon size={18} className="text-[#3B82F6]" />}
-            />
+            <div key={label} className="bg-white hover:bg-slate-50 transition-colors px-8 py-6 flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center shrink-0">
+                <Icon size={18} className="text-[#3B82F6]" />
+              </div>
+              <div>
+                <div className="text-2xl font-extrabold text-[#0F172A] leading-none">{value}</div>
+                <div className="text-xs text-slate-500 mt-0.5">{label}</div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
