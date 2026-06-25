@@ -1,792 +1,777 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AfChix Workshop - Lab Instructions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: #f5f7f5; color: #1a1a1a; line-height: 1.7; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-        
-        /* Header — AfChix dark green with coral accent */
-        header { 
-            background: #1B5E20; 
-            color: white; 
-            padding: 50px 20px 40px; 
-            text-align: center; 
-            position: relative;
-            overflow: hidden;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(232,168,124,0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(46,125,50,0.3) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        .header-logos {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 24px;
-            position: relative;
-            z-index: 1;
-        }
-        .header-logos img { height: 48px; width: auto; object-fit: contain; }
-        .header-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.3); }
-        header h1 { font-size: 28px; margin-bottom: 8px; font-weight: 800; position: relative; z-index: 1; letter-spacing: -0.5px; }
-        header h1 span { color: #E8A87C; }
-        header p { opacity: 0.9; font-size: 15px; position: relative; z-index: 1; }
-        .header-badge { 
-            display: inline-block; 
-            background: #E8A87C; 
-            color: #1B5E20; 
-            font-size: 12px; 
-            font-weight: 700; 
-            padding: 5px 14px; 
-            border-radius: 20px; 
-            margin-top: 16px; 
-            position: relative; 
-            z-index: 1;
-        }
+ - - - <meta charset="UTF-8">
+ - - - <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ - - - <title>AfChix Workshop - Lab Instructions</title>
+ - - - <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+ - - - <style>
+ - - - - - - - * { margin: 0; padding: 0; box-sizing: border-box; }
+ - - - - - - - body { font-family: 'Poppins', sans-serif; background: #f5f7f5; color: #1a1a1a; line-height: 1.7; }
+ - - - - - - - .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+ - - - - - - - 
+ - - - - - - - /* Header - AfChix dark green with coral accent */
+ - - - - - - - header { 
+ - - - - - - - - - - - background: #1B5E20; 
+ - - - - - - - - - - - color: white; 
+ - - - - - - - - - - - padding: 50px 20px 40px; 
+ - - - - - - - - - - - text-align: center; 
+ - - - - - - - - - - - position: relative;
+ - - - - - - - - - - - overflow: hidden;
+ - - - - - - - }
+ - - - - - - - header::before {
+ - - - - - - - - - - - content: '';
+ - - - - - - - - - - - position: absolute;
+ - - - - - - - - - - - top: -50%;
+ - - - - - - - - - - - right: -20%;
+ - - - - - - - - - - - width: 400px;
+ - - - - - - - - - - - height: 400px;
+ - - - - - - - - - - - background: radial-gradient(circle, rgba(232,168,124,0.15) 0%, transparent 70%);
+ - - - - - - - - - - - border-radius: 50%;
+ - - - - - - - }
+ - - - - - - - header::after {
+ - - - - - - - - - - - content: '';
+ - - - - - - - - - - - position: absolute;
+ - - - - - - - - - - - bottom: -30%;
+ - - - - - - - - - - - left: -10%;
+ - - - - - - - - - - - width: 300px;
+ - - - - - - - - - - - height: 300px;
+ - - - - - - - - - - - background: radial-gradient(circle, rgba(46,125,50,0.3) 0%, transparent 70%);
+ - - - - - - - - - - - border-radius: 50%;
+ - - - - - - - }
+ - - - - - - - .header-logos {
+ - - - - - - - - - - - display: flex;
+ - - - - - - - - - - - align-items: center;
+ - - - - - - - - - - - justify-content: center;
+ - - - - - - - - - - - gap: 24px;
+ - - - - - - - - - - - margin-bottom: 24px;
+ - - - - - - - - - - - position: relative;
+ - - - - - - - - - - - z-index: 1;
+ - - - - - - - }
+ - - - - - - - .header-logos img { height: 48px; width: auto; object-fit: contain; }
+ - - - - - - - .header-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.3); }
+ - - - - - - - header h1 { font-size: 28px; margin-bottom: 8px; font-weight: 800; position: relative; z-index: 1; letter-spacing: -0.5px; }
+ - - - - - - - header h1 span { color: #E8A87C; }
+ - - - - - - - header p { opacity: 0.9; font-size: 15px; position: relative; z-index: 1; }
+ - - - - - - - .header-badge { 
+ - - - - - - - - - - - display: inline-block; 
+ - - - - - - - - - - - background: #E8A87C; 
+ - - - - - - - - - - - color: #1B5E20; 
+ - - - - - - - - - - - font-size: 12px; 
+ - - - - - - - - - - - font-weight: 700; 
+ - - - - - - - - - - - padding: 5px 14px; 
+ - - - - - - - - - - - border-radius: 20px; 
+ - - - - - - - - - - - margin-top: 16px; 
+ - - - - - - - - - - - position: relative; 
+ - - - - - - - - - - - z-index: 1;
+ - - - - - - - }
 
-        /* Steps */
-        .step { background: white; border-radius: 16px; padding: 32px; margin: 24px 0; box-shadow: 0 2px 16px rgba(27,94,32,0.06); border: 1px solid #e8f0e8; }
-        .step h2 { color: #1B5E20; font-size: 22px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 3px solid #E8A87C; font-weight: 700; }
-        .step h3 { color: #2E7D32; font-size: 17px; margin: 24px 0 10px; font-weight: 600; }
-        .step p { margin-bottom: 12px; }
-        .step ol, .step ul { margin: 12px 0 12px 24px; }
-        .step li { margin-bottom: 8px; }
+ - - - - - - - /* Steps */
+ - - - - - - - .step { background: white; border-radius: 16px; padding: 32px; margin: 24px 0; box-shadow: 0 2px 16px rgba(27,94,32,0.06); border: 1px solid #e8f0e8; }
+ - - - - - - - .step h2 { color: #1B5E20; font-size: 22px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 3px solid #E8A87C; font-weight: 700; }
+ - - - - - - - .step h3 { color: #2E7D32; font-size: 17px; margin: 24px 0 10px; font-weight: 600; }
+ - - - - - - - .step p { margin-bottom: 12px; }
+ - - - - - - - .step ol, .step ul { margin: 12px 0 12px 24px; }
+ - - - - - - - .step li { margin-bottom: 8px; }
 
-        /* Alert boxes */
-        .warning { background: #fff8e1; border-left: 4px solid #F9A825; padding: 16px; border-radius: 8px; margin: 16px 0; }
-        .info { background: #e3f2fd; border-left: 4px solid #1E3A8A; padding: 16px; border-radius: 8px; margin: 16px 0; }
-        .success { background: #e8f5e9; border-left: 4px solid #2E7D32; padding: 16px; border-radius: 8px; margin: 16px 0; }
-        .analogy { background: #fef3ec; border-left: 4px solid #E8A87C; padding: 16px; border-radius: 8px; margin: 16px 0; font-style: italic; }
+ - - - - - - - /* Alert boxes */
+ - - - - - - - .warning { background: #fff8e1; border-left: 4px solid #F9A825; padding: 16px; border-radius: 8px; margin: 16px 0; }
+ - - - - - - - .info { background: #e3f2fd; border-left: 4px solid #1E3A8A; padding: 16px; border-radius: 8px; margin: 16px 0; }
+ - - - - - - - .success { background: #e8f5e9; border-left: 4px solid #2E7D32; padding: 16px; border-radius: 8px; margin: 16px 0; }
+ - - - - - - - .analogy { background: #fef3ec; border-left: 4px solid #E8A87C; padding: 16px; border-radius: 8px; margin: 16px 0; font-style: italic; }
 
-        /* Code */
-        code { background: #e8f5e9; color: #1B5E20; padding: 2px 8px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px; font-weight: 500; }
-        pre { background: #1a2e1a; color: #c8e6c9; padding: 18px; border-radius: 10px; overflow-x: auto; margin: 12px 0; font-size: 13px; border: 1px solid #2E7D32; }
+ - - - - - - - /* Code */
+ - - - - - - - code { background: #e8f5e9; color: #1B5E20; padding: 2px 8px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px; font-weight: 500; }
+ - - - - - - - pre { background: #1a2e1a; color: #c8e6c9; padding: 18px; border-radius: 10px; overflow-x: auto; margin: 12px 0; font-size: 13px; border: 1px solid #2E7D32; }
 
-        /* Screenshots */
-        .screenshot { background: #fafcfa; border: 2px dashed #c8e6c9; border-radius: 10px; padding: 14px; margin: 16px 0; text-align: center; }
-        .screenshot img { max-width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
-        .screenshot p { color: #666; font-size: 12px; margin-top: 10px; font-weight: 500; }
+ - - - - - - - /* Screenshots */
+ - - - - - - - .screenshot { background: #fafcfa; border: 2px dashed #c8e6c9; border-radius: 10px; padding: 14px; margin: 16px 0; text-align: center; }
+ - - - - - - - .screenshot img { max-width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+ - - - - - - - .screenshot p { color: #666; font-size: 12px; margin-top: 10px; font-weight: 500; }
 
-        /* Tables */
-        table { width: 100%; border-collapse: collapse; margin: 16px 0; border-radius: 8px; overflow: hidden; }
-        th, td { border: 1px solid #e8f0e8; padding: 12px 16px; text-align: left; font-size: 14px; }
-        th { background: #1B5E20; color: white; font-weight: 600; }
+ - - - - - - - /* Tables */
+ - - - - - - - table { width: 100%; border-collapse: collapse; margin: 16px 0; border-radius: 8px; overflow: hidden; }
+ - - - - - - - th, td { border: 1px solid #e8f0e8; padding: 12px 16px; text-align: left; font-size: 14px; }
+ - - - - - - - th { background: #1B5E20; color: white; font-weight: 600; }
 
-        .badge { display: inline-block; background: #E8A87C; color: #1B5E20; padding: 3px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; }
-        
-        /* Footer */
-        footer { 
-            background: #1B5E20; 
-            text-align: center; 
-            padding: 32px; 
-            color: rgba(255,255,255,0.7); 
-            font-size: 13px; 
-        }
-        footer strong { color: #E8A87C; }
+ - - - - - - - .badge { display: inline-block; background: #E8A87C; color: #1B5E20; padding: 3px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+ - - - - - - - 
+ - - - - - - - /* Footer */
+ - - - - - - - footer { 
+ - - - - - - - - - - - background: #1B5E20; 
+ - - - - - - - - - - - text-align: center; 
+ - - - - - - - - - - - padding: 32px; 
+ - - - - - - - - - - - color: rgba(255,255,255,0.7); 
+ - - - - - - - - - - - font-size: 13px; 
+ - - - - - - - }
+ - - - - - - - footer strong { color: #E8A87C; }
 
-        /* Quick reference card */
-        .quick-ref { 
-            background: linear-gradient(135deg, #1B5E20, #2E7D32); 
-            border: none; 
-            color: white; 
-            border-radius: 16px;
-            padding: 32px;
-        }
-        .quick-ref h2 { color: #E8A87C; border-bottom-color: rgba(232,168,124,0.3); }
-        .quick-ref table { border: none; }
-        .quick-ref th { background: rgba(0,0,0,0.2); }
-        .quick-ref td { border-color: rgba(255,255,255,0.1); color: white; }
-        .quick-ref a { color: #E8A87C; }
-        .quick-ref code { background: rgba(255,255,255,0.15); color: white; }
-    </style>
+ - - - - - - - /* Quick reference card */
+ - - - - - - - .quick-ref { 
+ - - - - - - - - - - - background: linear-gradient(135deg, #1B5E20, #2E7D32); 
+ - - - - - - - - - - - border: none; 
+ - - - - - - - - - - - color: white; 
+ - - - - - - - - - - - border-radius: 16px;
+ - - - - - - - - - - - padding: 32px;
+ - - - - - - - }
+ - - - - - - - .quick-ref h2 { color: #E8A87C; border-bottom-color: rgba(232,168,124,0.3); }
+ - - - - - - - .quick-ref table { border: none; }
+ - - - - - - - .quick-ref th { background: rgba(0,0,0,0.2); }
+ - - - - - - - .quick-ref td { border-color: rgba(255,255,255,0.1); color: white; }
+ - - - - - - - .quick-ref a { color: #E8A87C; }
+ - - - - - - - .quick-ref code { background: rgba(255,255,255,0.15); color: white; }
+ - - - </style>
 </head>
 <body>
 
 <header>
-    <div class="header-logos">
-        <img src="/images/sentibaydark.png" alt="SentiBay Consulting">
-        <div class="header-divider"></div>
-        <img src="https://afchix.org/wp-content/uploads/2023/01/afchix-logo.png" alt="AfChix" onerror="this.style.display='none'">
-    </div>
-    <h1><span>Virtualization &</span> Cloud Computing Workshop</h1>
-    <p>Launch a Windows Virtual Machine & Host a Website in the Cloud</p>
-    <p style="margin-top:8px; font-size:13px; opacity:0.7;">June 26, 2026 | Nairobi, Kenya</p>
-    <div class="header-badge">Trainer: Pauline Namwakira | AWS Authorized Instructor</div>
+ - - - <div class="header-logos">
+ - - - - - - - <img src="/images/sentibaydark.png" alt="SentiBay Consulting">
+ - - - - - - - <div class="header-divider"></div>
+ - - - - - - - <img src="https://afchix.org/wp-content/uploads/2023/01/afchix-logo.png" alt="AfChix" onerror="this.style.display='none'">
+ - - - </div>
+ - - - <h1><span>Virtualization &</span> Cloud Computing Workshop</h1>
+ - - - <p>Launch a Windows Virtual Machine & Host a Website in the Cloud</p>
+ - - - <p style="margin-top:8px; font-size:13px; opacity:0.7;">June 26, 2026 | Nairobi, Kenya</p>
+ - - - <div class="header-badge">Trainer: Pauline Namwakira | AWS Authorized Instructor</div>
 </header>
 
 <div class="container">
 
 <!-- QUICK REFERENCE TABLE -->
 <div class="step quick-ref">
-    <h2>🔑 Workshop Access Details</h2>
-    <table>
-        <tr><th style="width: 40%;">Item</th><th>Details</th></tr>
-        <tr><td><strong>AWS Login Portal</strong></td><td><a href="https://afchix-workshop.awsapps.com/start" target="_blank">https://afchix-workshop.awsapps.com/start</a></td></tr>
-        <tr><td><strong>Username</strong></td><td><code>afchix</code></td></tr>
-        <tr><td><strong>Password</strong></td><td><code>Afchix2026!</code></td></tr>
-        <tr><td><strong>Region</strong></td><td><strong>US East (N. Virginia)</strong> — <code>us-east-1</code></td></tr>
-    </table>
+ - - - <h2>🔑 Workshop Access Details</h2>
+ - - - <table>
+ - - - - - - - <tr><th style="width: 40%;">Item</th><th>Details</th></tr>
+ - - - - - - - <tr><td><strong>AWS Login Portal</strong></td><td><a href="https://afchix-workshop.awsapps.com/start" target="_blank">https://afchix-workshop.awsapps.com/start</a></td></tr>
+ - - - - - - - <tr><td><strong>Username</strong></td><td><code>afchix</code></td></tr>
+ - - - - - - - <tr><td><strong>Password</strong></td><td><code>Afchix2026!</code></td></tr>
+ - - - - - - - <tr><td><strong>Region</strong></td><td><strong>US East (N. Virginia)</strong> - <code>us-east-1</code></td></tr>
+ - - - </table>
 </div>
 
 <!-- DISCLAIMER -->
 <div class="step">
-    <div class="warning">
-        <strong>⚠️ SHARED ENVIRONMENT</strong><br>
-        We are all working in the same AWS account today. You will see other participants' resources. <strong>Only interact with resources that have YOUR name on them.</strong> Do not stop, terminate, or modify anyone else's resources.
-    </div>
-    <div class="info">
-        <strong>📝 Naming Convention:</strong> Use a <strong>unique nickname</strong> in everything you create today. This can be your first name + last initial, or a nickname no one else will have.<br><br>
-        Examples: <code>AfChix-GraceK</code> | <code>AfChix-Wanjiku</code> | <code>key-gracek</code><br><br>
-        <em>If two people share a first name, add your last initial to make it unique!</em>
-    </div>
+ - - - <div class="warning">
+ - - - - - - - <strong>⚠️ SHARED ENVIRONMENT</strong><br>
+ - - - - - - - We are all working in the same AWS account today. You will see other participants' resources. <strong>Only interact with resources that have YOUR name on them.</strong> Do not stop, terminate, or modify anyone else's resources.
+ - - - </div>
+ - - - <div class="info">
+ - - - - - - - <strong>📝 Naming Convention:</strong> Use a <strong>unique nickname</strong> in everything you create today. This can be your first name + last initial, or a nickname no one else will have.<br><br>
+ - - - - - - - Examples: <code>AfChix-GraceK</code> | <code>AfChix-Wanjiku</code> | <code>key-gracek</code><br><br>
+ - - - - - - - <em>If two people share a first name, add your last initial to make it unique!</em>
+ - - - </div>
 </div>
 
 <!-- STEP 1 -->
 <div class="step">
-    <h2>Step 1: Sign In to AWS</h2>
-    
-    <h3>1.1 Open the AWS Login Portal</h3>
-    <ol>
-        <li>Click this link: <a href="https://afchix-workshop.awsapps.com/start" target="_blank" style="color: #6B2D8B; font-weight: 600;">https://afchix-workshop.awsapps.com/start</a></li>
-    </ol>
+ - - - <h2>Step 1: Sign In to AWS</h2>
+ - - - 
+ - - - <h3>1.1 Open the AWS Login Portal</h3>
+ - - - <ol>
+ - - - - - - - <li>Click this link: <a href="https://afchix-workshop.awsapps.com/start" target="_blank" style="color: #6B2D8B; font-weight: 600;">https://afchix-workshop.awsapps.com/start</a></li>
+ - - - </ol>
 
-    <h3>1.2 First Time? Set Your Password</h3>
-    <p>If this is your first time signing in, you'll see a <strong>"New user sign up"</strong> page:</p>
-    <ol>
-        <li>Username will be pre-filled: <code>afchix</code></li>
-        <li>Enter password: <code>Afchix2026!</code></li>
-        <li>Confirm password: <code>Afchix2026!</code></li>
-        <li>Click <strong>"Set new password"</strong></li>
-    </ol>
-    <div class="screenshot">
-        <img src="screenshots/step1-new-user-signup.png" alt="New user sign up page">
-        <p>Set your password on this page</p>
-    </div>
-    <div class="screenshot">
-        <img src="screenshots/step1-success.png" alt="Successfully created account">
-        <p>Success! You're ready to sign in</p>
-    </div>
+ - - - <h3>1.2 Sign In</h3>
+ - - - <ol>
+ - - - - - - - <li>Username: <code>afchix</code></li>
+ - - - - - - - <li>Password: <code>Afchix2026!</code></li>
+ - - - - - - - <li>Click <strong>Sign in</strong></li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <img src="screenshots/step1-signin-username.png" alt="Sign in - enter username">
+ - - - - - - - <p>Enter the username: afchix</p>
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <img src="screenshots/step1-signin-password.png" alt="Sign in - enter password">
+ - - - - - - - <p>Enter the password: Afchix2026!</p>
+ - - - </div>
 
-    <h3>1.3 Sign In</h3>
-    <ol>
-        <li>Username: <code>afchix</code></li>
-        <li>Password: <code>Afchix2026!</code></li>
-        <li>Click <strong>Sign in</strong></li>
-    </ol>
-    <div class="screenshot">
-        <img src="screenshots/step1-signin-username.png" alt="Sign in - enter username">
-        <p>Enter the username: afchix</p>
-    </div>
-    <div class="screenshot">
-        <img src="screenshots/step1-signin-password.png" alt="Sign in - enter password">
-        <p>Enter the password: Afchix2026!</p>
-    </div>
+ - - - <h3>1.3 Enter the AWS Console</h3>
+ - - - <ol>
+ - - - - - - - <li>You'll see the <strong>"AWS access portal"</strong> page with one account listed</li>
+ - - - - - - - <li>Click the <strong>arrow (�-�)</strong> next to the account name to expand it</li>
+ - - - - - - - <li>Click the role name to open the Console</li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <img src="screenshots/step1-access-portal.png" alt="AWS access portal">
+ - - - - - - - <p>Click the account, then click to enter the Console</p>
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <img src="screenshots/step1-console-home.png" alt="AWS Console home">
+ - - - - - - - <p>You're in! This is the AWS Management Console</p>
+ - - - </div>
 
-    <h3>1.4 Enter the AWS Console</h3>
-    <ol>
-        <li>You'll see the <strong>"AWS access portal"</strong> page with one account listed</li>
-        <li>Click the <strong>arrow (▶)</strong> next to the account name to expand it</li>
-        <li>Click the role name to open the Console</li>
-    </ol>
-    <div class="screenshot">
-        <img src="screenshots/step1-access-portal.png" alt="AWS access portal">
-        <p>Click the account, then click to enter the Console</p>
-    </div>
-    <div class="screenshot">
-        <img src="screenshots/step1-console-home.png" alt="AWS Console home">
-        <p>You're in! This is the AWS Management Console</p>
-    </div>
-
-    <div class="analogy">
-        💡 <strong>What is this?</strong> This is the AWS Console — the control panel where cloud engineers manage all their cloud resources. Think of it as a building manager's dashboard where you can see and control every apartment in the building.
-    </div>
+ - - - <div class="analogy">
+ - - - - - - - 💡 <strong>What is this?</strong> This is the AWS Console - the control panel where cloud engineers manage all their cloud resources. Think of it as a building manager's dashboard where you can see and control every apartment in the building.
+ - - - </div>
 </div>
 
 <!-- STEP 2 -->
 <div class="step">
-    <h2>Step 2: Navigate to EC2</h2>
-    <ol>
-        <li>At the top of the page, click the <strong>search bar</strong></li>
-        <li>Type: <strong>EC2</strong></li>
-        <li>Click <strong>EC2</strong> in the dropdown results (under "Services")</li>
-        <li>You are now in the <strong>EC2 Dashboard</strong></li>
-    </ol>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Searching for EC2 in console -->
-        <img src="screenshots/step2-search-ec2.png" alt="Searching for EC2">
-        <p>Search for EC2 in the top bar</p>
-    </div>
-    <div class="screenshot">
-        <!-- SCREENSHOT: EC2 Dashboard -->
-        <img src="screenshots/step2-ec2-dashboard.png" alt="EC2 Dashboard">
-        <p>The EC2 Dashboard - your virtual machines control center</p>
-    </div>
+ - - - <h2>Step 2: Navigate to EC2</h2>
+ - - - <ol>
+ - - - - - - - <li>At the top of the page, click the <strong>search bar</strong></li>
+ - - - - - - - <li>Type: <strong>EC2</strong></li>
+ - - - - - - - <li>Click <strong>EC2</strong> in the dropdown results (under "Services")</li>
+ - - - - - - - <li>You are now in the <strong>EC2 Dashboard</strong></li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Searching for EC2 in console -->
+ - - - - - - - <img src="screenshots/step2-search-ec2.png" alt="Searching for EC2">
+ - - - - - - - <p>Search for EC2 in the top bar</p>
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: EC2 Dashboard -->
+ - - - - - - - <img src="screenshots/step2-ec2-dashboard.png" alt="EC2 Dashboard">
+ - - - - - - - <p>The EC2 Dashboard - your virtual machines control center</p>
+ - - - </div>
 
-    <div class="info">
-        <strong>Check your Region:</strong> Look at the top-right corner. It should say <strong>US East (N. Virginia)</strong>. If not, click the dropdown and select it.
-    </div>
+ - - - <div class="info">
+ - - - - - - - <strong>Check your Region:</strong> Look at the top-right corner. It should say <strong>US East (N. Virginia)</strong>. If not, click the dropdown and select it.
+ - - - </div>
 
-    <div class="analogy">
-        💡 <strong>What is EC2?</strong> EC2 = Elastic Compute Cloud. It lets you rent virtual computers (called "instances") in AWS data centers. Think of it as renting a laptop that lives in the cloud — except it's much more powerful and you can access it from anywhere.
-    </div>
+ - - - <div class="analogy">
+ - - - - - - - 💡 <strong>What is EC2?</strong> EC2 = Elastic Compute Cloud. It lets you rent virtual computers (called "instances") in AWS data centers. Think of it as renting a laptop that lives in the cloud - except it's much more powerful and you can access it from anywhere.
+ - - - </div>
 </div>
 
 <!-- STEP 3 -->
 <div class="step">
-    <h2>Step 3: Launch a Windows Instance</h2>
-    <p>This is where the fun begins. You're about to create a virtual computer running Windows — in the cloud!</p>
+ - - - <h2>Step 3: Launch a Windows Instance</h2>
+ - - - <p>This is where the fun begins. You're about to create a virtual computer running Windows - in the cloud!</p>
 
-    <h3>3.1 Start the Launch Wizard</h3>
-    <p>Click the orange <strong>"Launch instance"</strong> button.</p>
+ - - - <h3>3.1 Start the Launch Wizard</h3>
+ - - - <p>Click the orange <strong>"Launch instance"</strong> button.</p>
 
-    <h3>3.2 Name Your Instance</h3>
-    <p>Under "Name and tags", type: <code>AfChix-YourNickname</code> (e.g., <code>AfChix-GraceK</code> or <code>AfChix-Wanjiku</code>)</p>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Name field filled in -->
-        <img src="screenshots/step3-name.png" alt="Naming the instance">
-        <p>Give your instance a name with YOUR name in it</p>
-    </div>
+ - - - <h3>3.2 Name Your Instance</h3>
+ - - - <p>Under "Name and tags", type: <code>AfChix-YourNickname</code> (e.g., <code>AfChix-GraceK</code> or <code>AfChix-Wanjiku</code>)</p>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Name field filled in -->
+ - - - - - - - <img src="screenshots/step3-name.png" alt="Naming the instance">
+ - - - - - - - <p>Give your instance a name with YOUR name in it</p>
+ - - - </div>
 
-    <h3>3.3 Choose Windows</h3>
-    <ol>
-        <li>Under "Application and OS Images", click the <strong>"Windows"</strong> tab</li>
-        <li>Select <strong>"Microsoft Windows Server 2025 Base"</strong> (Free tier eligible)</li>
-    </ol>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Windows tab selected, Windows Server 2025 shown -->
-        <img src="screenshots/step3-windows-os.png" alt="Selecting Windows OS">
-        <p>Click the Windows tab and select Windows Server 2025</p>
-    </div>
-    <div class="analogy">
-        💡 <strong>What is an AMI?</strong> AMI = Amazon Machine Image. It's a template that tells AWS which operating system to install. We picked Windows because most people are familiar with it.
-    </div>
+ - - - <h3>3.3 Choose Windows</h3>
+ - - - <ol>
+ - - - - - - - <li>Under "Application and OS Images", click the <strong>"Windows"</strong> tab</li>
+ - - - - - - - <li>Select <strong>"Microsoft Windows Server 2025 Base"</strong> (Free tier eligible)</li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Windows tab selected, Windows Server 2025 shown -->
+ - - - - - - - <img src="screenshots/step3-windows-os.png" alt="Selecting Windows OS">
+ - - - - - - - <p>Click the Windows tab and select Windows Server 2025</p>
+ - - - </div>
+ - - - <div class="analogy">
+ - - - - - - - 💡 <strong>What is an AMI?</strong> AMI = Amazon Machine Image. It's a template that tells AWS which operating system to install. We picked Windows because most people are familiar with it.
+ - - - </div>
 
-    <h3>3.4 Choose Instance Size</h3>
-    <p>Under "Instance type", change from t3.micro to <strong>t3.medium</strong> (2 vCPU, 4 GiB memory).</p>
-    <div class="analogy">
-        💡 <strong>What is an instance type?</strong> This is the "size" of your virtual computer. Think of it like choosing between a studio apartment (t3.micro, 1GB RAM) and a one-bedroom (t3.medium, 4GB RAM). Windows needs more space to run smoothly.
-    </div>
+ - - - <h3>3.4 Choose Instance Size</h3>
+ - - - <p>Under "Instance type", change from t3.micro to <strong>t3.medium</strong> (2 vCPU, 4 GiB memory).</p>
+ - - - <div class="analogy">
+ - - - - - - - 💡 <strong>What is an instance type?</strong> This is the "size" of your virtual computer. Think of it like choosing between a studio apartment (t3.micro, 1GB RAM) and a one-bedroom (t3.medium, 4GB RAM). Windows needs more space to run smoothly.
+ - - - </div>
 
-    <h3>3.5 Create a Key Pair</h3>
-    <div class="warning">
-        ⚠️ <strong>Do NOT select from the dropdown!</strong> You may see other people's key pairs there. Always click "Create new key pair".
-    </div>
-    <ol>
-        <li>Click <strong>"Create new key pair"</strong></li>
-        <li>Key pair name: <code>key-yournickname</code> (e.g., <code>key-gracek</code>)</li>
-        <li>Key pair type: <strong>RSA</strong></li>
-        <li>Format: <strong>.pem</strong></li>
-        <li>Click <strong>"Create key pair"</strong></li>
-        <li>A <code>.pem</code> file will download — <strong>keep this file safe!</strong></li>
-    </ol>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Create key pair dialog -->
-        <img src="screenshots/step3-create-keypair.png" alt="Create key pair dialog">
-        <p>Fill in your name and click Create key pair</p>
-    </div>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Key pair file downloaded -->
-        <img src="screenshots/step3-keypair-downloaded.png" alt="Key pair file downloaded">
-        <p>The .pem file downloads to your computer</p>
-    </div>
-    <div class="analogy">
-        💡 <strong>What is a key pair?</strong> It's like a special lock and key for your machine. The .pem file is the "key" that proves you're the owner. Without it, you can't get the password to log in.
-    </div>
+ - - - <h3>3.5 Create a Key Pair</h3>
+ - - - <div class="warning">
+ - - - - - - - ⚠️ <strong>Do NOT select from the dropdown!</strong> You may see other people's key pairs there. Always click "Create new key pair".
+ - - - </div>
+ - - - <ol>
+ - - - - - - - <li>Click <strong>"Create new key pair"</strong></li>
+ - - - - - - - <li>Key pair name: <code>key-yournickname</code> (e.g., <code>key-gracek</code>)</li>
+ - - - - - - - <li>Key pair type: <strong>RSA</strong></li>
+ - - - - - - - <li>Format: <strong>.pem</strong></li>
+ - - - - - - - <li>Click <strong>"Create key pair"</strong></li>
+ - - - - - - - <li>A <code>.pem</code> file will download - <strong>keep this file safe!</strong></li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Create key pair dialog -->
+ - - - - - - - <img src="screenshots/step3-create-keypair.png" alt="Create key pair dialog">
+ - - - - - - - <p>Fill in your name and click Create key pair</p>
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Key pair file downloaded -->
+ - - - - - - - <img src="screenshots/step3-keypair-downloaded.png" alt="Key pair file downloaded">
+ - - - - - - - <p>The .pem file downloads to your computer</p>
+ - - - </div>
+ - - - <div class="analogy">
+ - - - - - - - 💡 <strong>What is a key pair?</strong> It's like a special lock and key for your machine. The .pem file is the "key" that proves you're the owner. Without it, you can't get the password to log in.
+ - - - </div>
 
-    <h3>3.6 Network Settings (Firewall)</h3>
-    <p>Click <strong>"Edit"</strong> on the Network settings section, then check these boxes:</p>
-    <ul>
-        <li>✅ <strong>Allow RDP traffic from</strong> — Anywhere (0.0.0.0/0)</li>
-        <li>✅ <strong>Allow HTTP traffic from the internet</strong></li>
-    </ul>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Network settings with RDP and HTTP checked -->
-        <img src="screenshots/step3-network-settings.png" alt="Network settings">
-        <p>Make sure RDP and HTTP are both checked</p>
-    </div>
-    <div class="analogy">
-        💡 <strong>What are these?</strong> Think of them as doors on your apartment:<br>
-        • <strong>RDP (port 3389)</strong> = the door YOU use to walk in and control your machine<br>
-        • <strong>HTTP (port 80)</strong> = the shop window that lets visitors see your website
-    </div>
+ - - - <h3>3.6 Network Settings (Firewall)</h3>
+ - - - <p>Click <strong>"Edit"</strong> on the Network settings section, then check these boxes:</p>
+ - - - <ul>
+ - - - - - - - <li>✅ <strong>Allow RDP traffic from</strong> - Anywhere (0.0.0.0/0)</li>
+ - - - - - - - <li>✅ <strong>Allow HTTP traffic from the internet</strong></li>
+ - - - </ul>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Network settings with RDP and HTTP checked -->
+ - - - - - - - <img src="screenshots/step3-network-settings.png" alt="Network settings">
+ - - - - - - - <p>Make sure RDP and HTTP are both checked</p>
+ - - - </div>
+ - - - <div class="analogy">
+ - - - - - - - 💡 <strong>What are these?</strong> Think of them as doors on your apartment:<br>
+ - - - - - - - • <strong>RDP (port 3389)</strong> = the door YOU use to walk in and control your machine<br>
+ - - - - - - - • <strong>HTTP (port 80)</strong> = the shop window that lets visitors see your website
+ - - - </div>
 
-    <h3>3.7 Launch!</h3>
-    <ol>
-        <li>Leave everything else as default</li>
-        <li>Click the orange <strong>"Launch instance"</strong> button at the bottom</li>
-        <li>You'll see: ✅ <strong>"Successfully initiated launch of instance"</strong></li>
-        <li>Click <strong>"View all instances"</strong></li>
-    </ol>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Successfully launched message -->
-        <img src="screenshots/step3-launch-success.png" alt="Instance launched successfully">
-        <p>Success! Your virtual machine is being created</p>
-    </div>
+ - - - <h3>3.7 Launch!</h3>
+ - - - <ol>
+ - - - - - - - <li>Leave everything else as default</li>
+ - - - - - - - <li>Click the orange <strong>"Launch instance"</strong> button at the bottom</li>
+ - - - - - - - <li>You'll see: ✅ <strong>"Successfully initiated launch of instance"</strong></li>
+ - - - - - - - <li>Click <strong>"View all instances"</strong></li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Successfully launched message -->
+ - - - - - - - <img src="screenshots/step3-launch-success.png" alt="Instance launched successfully">
+ - - - - - - - <p>Success! Your virtual machine is being created</p>
+ - - - </div>
 
-    <h3>3.8 Wait for Your Instance to Start</h3>
-    <p>Look for your instance in the list. Wait until:</p>
-    <ul>
-        <li><strong>Instance state:</strong> Running (green dot) ✅</li>
-        <li><strong>Status check:</strong> 3/3 checks passed ✅</li>
-    </ul>
-    <p>This takes <strong>3-5 minutes</strong> — be patient!</p>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Instance running with 3/3 checks -->
-        <img src="screenshots/step3-instance-running.png" alt="Instance running">
-        <p>Your instance is running and all health checks passed</p>
-    </div>
-    <div class="analogy">
-        💡 You just rented an apartment in a building (AWS data center) in Virginia, USA. It's being prepared for you. "Running" means your apartment is ready to move in!
-    </div>
+ - - - <h3>3.8 Wait for Your Instance to Start</h3>
+ - - - <p>Look for your instance in the list. Wait until:</p>
+ - - - <ul>
+ - - - - - - - <li><strong>Instance state:</strong> Running (green dot) ✅</li>
+ - - - - - - - <li><strong>Status check:</strong> 3/3 checks passed ✅</li>
+ - - - </ul>
+ - - - <p>This takes <strong>3-5 minutes</strong>. While we wait, let's explore the instance details below!</p>
+ - - - <div class="screenshot">
+ - - - - - - - <img src="screenshots/step3-instance-running.png" alt="Instance running">
+ - - - - - - - <p>Your instance is running and all health checks passed</p>
+ - - - </div>
+ - - - <div class="analogy">
+ - - - - - - - 💡 You just rented an apartment in a building (AWS data center) in Virginia, USA. It's being prepared for you. "Running" means your apartment is ready to move in!
+ - - - </div>
 </div>
 
 <!-- STEP 3B: EXPLORE DETAILS -->
 <div class="step">
-    <h2>Step 3B: Explore Your Instance (Quick Tour)</h2>
-    <p>Click your instance name to see its details. You'll see several tabs — let's explore what each one shows:</p>
+ - - - <h2>Step 3B: Explore Your Instance While We Wait</h2>
+ - - - <div class="info">
+ - - - - - - - <strong>⏱️ Your instance is still starting up.</strong> While we wait for it to be ready, let's click on the instance name and explore what information AWS gives us about our virtual machine.
+ - - - </div>
+ - - - <p>Click your instance name to see its details. You'll see several tabs:</p>
 
-    <h3>Details Tab</h3>
-    <p>The "ID card" of your virtual machine:</p>
-    <table>
-        <tr><th>Field</th><th>What it means</th></tr>
-        <tr><td><strong>Instance ID</strong></td><td>Unique serial number (e.g., i-087289055bbbd2c3d)</td></tr>
-        <tr><td><strong>Instance state</strong></td><td>Running, stopped, or terminated</td></tr>
-        <tr><td><strong>Instance type</strong></td><td>The size: t3.medium (2 vCPU, 4 GiB RAM)</td></tr>
-        <tr><td><strong>Public IPv4 address</strong></td><td>Your machine's internet address — used to connect and view website</td></tr>
-        <tr><td><strong>Private IPv4 address</strong></td><td>Internal address only visible within AWS</td></tr>
-        <tr><td><strong>VPC ID</strong></td><td>The virtual network your machine lives in</td></tr>
-        <tr><td><strong>Availability Zone</strong></td><td>The specific data center (e.g., us-east-1a)</td></tr>
-    </table>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Details tab -->
-        <img src="screenshots/step3b-details.png" alt="Instance details tab">
-        <p>The Details tab shows all the key info about your machine</p>
-    </div>
+ - - - <h3>Details Tab</h3>
+ - - - <p>The "ID card" of your virtual machine:</p>
+ - - - <table>
+ - - - - - - - <tr><th>Field</th><th>What it means</th></tr>
+ - - - - - - - <tr><td><strong>Instance ID</strong></td><td>Unique serial number (e.g., i-087289055bbbd2c3d)</td></tr>
+ - - - - - - - <tr><td><strong>Instance state</strong></td><td>Running, stopped, or terminated</td></tr>
+ - - - - - - - <tr><td><strong>Instance type</strong></td><td>The size: t3.medium (2 vCPU, 4 GiB RAM)</td></tr>
+ - - - - - - - <tr><td><strong>Public IPv4 address</strong></td><td>Your machine's internet address - used to connect and view website</td></tr>
+ - - - - - - - <tr><td><strong>Private IPv4 address</strong></td><td>Internal address only visible within AWS</td></tr>
+ - - - - - - - <tr><td><strong>VPC ID</strong></td><td>The virtual network your machine lives in</td></tr>
+ - - - - - - - <tr><td><strong>Availability Zone</strong></td><td>The specific data center (e.g., us-east-1a)</td></tr>
+ - - - </table>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Details tab -->
+ - - - - - - - <img src="screenshots/step3b-details.png" alt="Instance details tab">
+ - - - - - - - <p>The Details tab shows all the key info about your machine</p>
+ - - - </div>
 
-    <h3>Status and Alarms Tab</h3>
-    <p>Health checks — AWS monitors your machine continuously. All three should show ✅ "Check passed":</p>
-    <ul>
-        <li>System status check ✅</li>
-        <li>Instance status check ✅</li>
-        <li>EBS status check ✅</li>
-    </ul>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Status checks tab -->
-        <img src="screenshots/step3b-status.png" alt="Status checks">
-        <p>All checks passed — your machine is healthy</p>
-    </div>
+ - - - <h3>Status and Alarms Tab</h3>
+ - - - <p>Health checks - AWS monitors your machine continuously. All three should show ✅ "Check passed":</p>
+ - - - <ul>
+ - - - - - - - <li>System status check ✅</li>
+ - - - - - - - <li>Instance status check ✅</li>
+ - - - - - - - <li>EBS status check ✅</li>
+ - - - </ul>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Status checks tab -->
+ - - - - - - - <img src="screenshots/step3b-status.png" alt="Status checks">
+ - - - - - - - <p>All checks passed - your machine is healthy</p>
+ - - - </div>
 
-    <h3>Monitoring Tab</h3>
-    <p>Performance graphs showing CPU usage, network traffic, and more. Like the electricity meter in your apartment.</p>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Monitoring tab with graphs -->
-        <img src="screenshots/step3b-monitoring.png" alt="Monitoring graphs">
-        <p>Live performance metrics of your virtual machine</p>
-    </div>
+ - - - <h3>Monitoring Tab</h3>
+ - - - <p>Performance graphs showing CPU usage, network traffic, and more. Like the electricity meter in your apartment.</p>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Monitoring tab with graphs -->
+ - - - - - - - <img src="screenshots/step3b-monitoring.png" alt="Monitoring graphs">
+ - - - - - - - <p>Live performance metrics of your virtual machine</p>
+ - - - </div>
 
-    <h3>Security Tab</h3>
-    <p>Shows which "doors" are open on your machine:</p>
-    <ul>
-        <li><strong>Port 3389 (RDP)</strong> — allows remote desktop connections</li>
-        <li><strong>Port 80 (HTTP)</strong> — allows web traffic for your website</li>
-    </ul>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Security tab with inbound rules -->
-        <img src="screenshots/step3b-security.png" alt="Security rules">
-        <p>Inbound rules: RDP (3389) and HTTP (80) are open</p>
-    </div>
+ - - - <h3>Security Tab</h3>
+ - - - <p>Shows which "doors" are open on your machine:</p>
+ - - - <ul>
+ - - - - - - - <li><strong>Port 3389 (RDP)</strong> - allows remote desktop connections</li>
+ - - - - - - - <li><strong>Port 80 (HTTP)</strong> - allows web traffic for your website</li>
+ - - - </ul>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Security tab with inbound rules -->
+ - - - - - - - <img src="screenshots/step3b-security.png" alt="Security rules">
+ - - - - - - - <p>Inbound rules: RDP (3389) and HTTP (80) are open</p>
+ - - - </div>
 
-    <h3>Networking Tab</h3>
-    <p>Shows your VPC (virtual network), subnet, public DNS, and IP addresses.</p>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Networking tab -->
-        <img src="screenshots/step3b-networking.png" alt="Networking details">
-        <p>Network configuration of your instance</p>
-    </div>
+ - - - <h3>Networking Tab</h3>
+ - - - <p>Shows your VPC (virtual network), subnet, public DNS, and IP addresses.</p>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Networking tab -->
+ - - - - - - - <img src="screenshots/step3b-networking.png" alt="Networking details">
+ - - - - - - - <p>Network configuration of your instance</p>
+ - - - </div>
 
-    <h3>Storage Tab</h3>
-    <p>Your machine's hard drive: 30 GiB EBS volume. This is where Windows and your files are stored.</p>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Storage tab -->
-        <img src="screenshots/step3b-storage.png" alt="Storage details">
-        <p>Your virtual hard drive — 30 GiB</p>
-    </div>
+ - - - <h3>Storage Tab</h3>
+ - - - <p>Your machine's hard drive: 30 GiB EBS volume. This is where Windows and your files are stored.</p>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Storage tab -->
+ - - - - - - - <img src="screenshots/step3b-storage.png" alt="Storage details">
+ - - - - - - - <p>Your virtual hard drive - 30 GiB</p>
+ - - - </div>
 
-    <h3>Tags Tab</h3>
-    <p>Labels on your instance. You should see: <strong>Name = AfChix-YourNickname</strong></p>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Tags tab -->
-        <img src="screenshots/step3b-tags.png" alt="Tags">
-        <p>Tags help you identify your resources</p>
-    </div>
+ - - - <h3>Tags Tab</h3>
+ - - - <p>Labels on your instance. You should see: <strong>Name = AfChix-YourNickname</strong></p>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Tags tab -->
+ - - - - - - - <img src="screenshots/step3b-tags.png" alt="Tags">
+ - - - - - - - <p>Tags help you identify your resources</p>
+ - - - </div>
 </div>
 
 <!-- STEP 4 -->
 <div class="step">
-    <h2>Step 4: Connect to Your Virtual Machine</h2>
-    <p>Now we'll connect to your Windows machine using Remote Desktop — you'll see and control the full Windows desktop from your laptop.</p>
+ - - - <h2>Step 4: Connect to Your Virtual Machine</h2>
+ - - - <p>Now we'll connect to your Windows machine using Remote Desktop - you'll see and control the full Windows desktop from your laptop.</p>
 
-    <h3>4.1 Get Your Windows Password</h3>
-    <ol>
-        <li>Select your instance (checkbox)</li>
-        <li>Click <strong>"Actions"</strong> > <strong>"Security"</strong> > <strong>"Get Windows password"</strong></li>
-        <li>Click <strong>"Upload private key file"</strong></li>
-        <li>Select the <code>.pem</code> file you downloaded earlier</li>
-        <li>Click <strong>"Decrypt password"</strong></li>
-        <li><strong>COPY THE PASSWORD</strong> — you'll need it next</li>
-    </ol>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Get Windows password - upload key -->
-        <img src="screenshots/step4-upload-key.png" alt="Upload private key">
-        <p>Upload your .pem file to decrypt the password</p>
-    </div>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Decrypted password shown -->
-        <img src="screenshots/step4-password-decrypted.png" alt="Password decrypted">
-        <p>Copy this password! You'll need it to log in</p>
-    </div>
-    <div class="info">
-        <strong>⏱️ Note:</strong> The password may take up to 4 minutes to become available after launch. If you see "Password is not available yet", wait and try again.
-    </div>
+ - - - <h3>4.1 Get Your Windows Password</h3>
+ - - - <ol>
+ - - - - - - - <li>Select your instance (checkbox)</li>
+ - - - - - - - <li>Click <strong>"Actions"</strong> > <strong>"Security"</strong> > <strong>"Get Windows password"</strong></li>
+ - - - - - - - <li>Click <strong>"Upload private key file"</strong></li>
+ - - - - - - - <li>Select the <code>.pem</code> file you downloaded earlier</li>
+ - - - - - - - <li>Click <strong>"Decrypt password"</strong></li>
+ - - - - - - - <li><strong>COPY THE PASSWORD</strong> - you'll need it next</li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Get Windows password - upload key -->
+ - - - - - - - <img src="screenshots/step4-upload-key.png" alt="Upload private key">
+ - - - - - - - <p>Upload your .pem file to decrypt the password</p>
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Decrypted password shown -->
+ - - - - - - - <img src="screenshots/step4-password-decrypted.png" alt="Password decrypted">
+ - - - - - - - <p>Copy this password! You'll need it to log in</p>
+ - - - </div>
+ - - - <div class="info">
+ - - - - - - - <strong>⏱️ Note:</strong> The password may take up to 4 minutes to become available after launch. If you see "Password is not available yet", wait and try again.
+ - - - </div>
 
-    <h3>4.2 Connect Using Remote Desktop</h3>
-    <ol>
-        <li>Select your instance > Click <strong>"Connect"</strong></li>
-        <li>Click the <strong>"RDP client"</strong> tab</li>
-        <li>Click <strong>"Download remote desktop file"</strong></li>
-        <li>Open the downloaded <code>.rdp</code> file</li>
-    </ol>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Connect page with RDP client tab -->
-        <img src="screenshots/step4-connect-rdp.png" alt="RDP client connect page">
-        <p>Download the remote desktop file</p>
-    </div>
+ - - - <h3>4.2 Connect Using Remote Desktop</h3>
+ - - - <ol>
+ - - - - - - - <li>Select your instance > Click <strong>"Connect"</strong></li>
+ - - - - - - - <li>Click the <strong>"RDP client"</strong> tab</li>
+ - - - - - - - <li>Click <strong>"Download remote desktop file"</strong></li>
+ - - - - - - - <li>Open the downloaded <code>.rdp</code> file</li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Connect page with RDP client tab -->
+ - - - - - - - <img src="screenshots/step4-connect-rdp.png" alt="RDP client connect page">
+ - - - - - - - <p>Download the remote desktop file</p>
+ - - - </div>
 
-    <p>You'll see several popups — here's what to do with each:</p>
-    <ol start="5">
-        <li><strong>"Opening Remote Desktop Connection"</strong> → Click <strong>OK</strong></li>
-        <li><strong>"Remote Desktop Connection security warning"</strong> → Check <strong>Clipboard</strong>, click <strong>"Connect"</strong></li>
-        <li><strong>"Enter your credentials"</strong> → Click "More choices" > "Use a different account" → Username: <code>Administrator</code> → Password: <strong>paste the password you copied</strong> → Click <strong>OK</strong></li>
-        <li><strong>"Identity cannot be verified"</strong> → Click <strong>"Yes"</strong></li>
-    </ol>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Security warning popup -->
-        <img src="screenshots/step4-security-warning.png" alt="Security warning">
-        <p>This is normal — click Connect</p>
-    </div>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Enter credentials popup -->
-        <img src="screenshots/step4-credentials.png" alt="Enter credentials">
-        <p>Enter Administrator and paste your password</p>
-    </div>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Certificate warning -->
-        <img src="screenshots/step4-certificate.png" alt="Certificate warning">
-        <p>Click Yes — this is safe, you just created this machine</p>
-    </div>
+ - - - <p>You'll see several popups - here's what to do with each:</p>
+ - - - <ol start="5">
+ - - - - - - - <li><strong>"Opening Remote Desktop Connection"</strong> → Click <strong>OK</strong></li>
+ - - - - - - - <li><strong>"Remote Desktop Connection security warning"</strong> → Check <strong>Clipboard</strong>, click <strong>"Connect"</strong></li>
+ - - - - - - - <li><strong>"Enter your credentials"</strong> → Click "More choices" > "Use a different account" → Username: <code>Administrator</code> → Password: <strong>paste the password you copied</strong> → Click <strong>OK</strong></li>
+ - - - - - - - <li><strong>"Identity cannot be verified"</strong> → Click <strong>"Yes"</strong></li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Security warning popup -->
+ - - - - - - - <img src="screenshots/step4-security-warning.png" alt="Security warning">
+ - - - - - - - <p>This is normal - click Connect</p>
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Enter credentials popup -->
+ - - - - - - - <img src="screenshots/step4-credentials.png" alt="Enter credentials">
+ - - - - - - - <p>Enter Administrator and paste your password</p>
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Certificate warning -->
+ - - - - - - - <img src="screenshots/step4-certificate.png" alt="Certificate warning">
+ - - - - - - - <p>Click Yes - this is safe, you just created this machine</p>
+ - - - </div>
 
-    <div class="success">
-        🎉 <strong>You should now see the Windows Server desktop!</strong> This is a real computer running in an AWS data center in the USA. You are controlling it from your laptop in Nairobi.
-    </div>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Windows desktop visible via RDP -->
-        <img src="screenshots/step4-windows-desktop.png" alt="Windows Server desktop">
-        <p>Welcome to your virtual machine in the cloud!</p>
-    </div>
+ - - - <div class="success">
+ - - - - - - - 🎉 <strong>You should now see the Windows Server desktop!</strong> This is a real computer running in an AWS data center in the USA. You are controlling it from your laptop in Nairobi.
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Windows desktop visible via RDP -->
+ - - - - - - - <img src="screenshots/step4-windows-desktop.png" alt="Windows Server desktop">
+ - - - - - - - <p>Welcome to your virtual machine in the cloud!</p>
+ - - - </div>
 
-    <div class="info">
-        <strong>🖥️ Windows users:</strong> The steps above are for you — continue to Step 5.
-    </div>
+ - - - <div class="info">
+ - - - - - - - <strong>�-�️ Windows users:</strong> The steps above are for you - continue to Step 5.
+ - - - </div>
 </div>
 
 <!-- STEP 4 MAC -->
 <div class="step">
-    <h2>Step 4 (Mac): Connect from a Mac</h2>
-    <p>If you're using a Mac, follow these steps instead of the Windows RDP instructions above.</p>
+ - - - <h2>Step 4 (Mac): Connect from a Mac</h2>
+ - - - <p>If you're using a Mac, follow these steps instead of the Windows RDP instructions above.</p>
 
-    <h3>4M.1 Install Microsoft Remote Desktop</h3>
-    <ol>
-        <li>Open the <strong>App Store</strong> on your Mac (the blue "A" icon in your dock)</li>
-        <li>Search for <strong>"Microsoft Remote Desktop"</strong></li>
-        <li>Click <strong>Get</strong> then <strong>Install</strong> (it's free)</li>
-        <li>Wait for it to download and install</li>
-    </ol>
-    <div class="warning">
-        ⚠️ <strong>Mac users:</strong> You'll need to install Microsoft Remote Desktop from the App Store. The trainer will guide you through this during the workshop.
-    </div>
+ - - - <h3>4M.1 Install Microsoft Remote Desktop</h3>
+ - - - <ol>
+ - - - - - - - <li>Open the <strong>App Store</strong> on your Mac (the blue "A" icon in your dock)</li>
+ - - - - - - - <li>Search for <strong>"Microsoft Remote Desktop"</strong></li>
+ - - - - - - - <li>Click <strong>Get</strong> then <strong>Install</strong> (it's free)</li>
+ - - - - - - - <li>Wait for it to download and install</li>
+ - - - </ol>
+ - - - <div class="warning">
+ - - - - - - - ⚠️ <strong>Mac users:</strong> You'll need to install Microsoft Remote Desktop from the App Store. The trainer will guide you through this during the workshop.
+ - - - </div>
 
-    <h3>4M.2 Get Your Password (Same as Windows)</h3>
-    <ol>
-        <li>In the AWS Console, select your instance</li>
-        <li>Click <strong>"Actions"</strong> > <strong>"Security"</strong> > <strong>"Get Windows password"</strong></li>
-        <li>Click <strong>"Upload private key file"</strong> and select your <code>.pem</code> file from Downloads</li>
-        <li>Click <strong>"Decrypt password"</strong></li>
-        <li><strong>Copy the password</strong> (Cmd+C)</li>
-    </ol>
+ - - - <h3>4M.2 Get Your Password (Same as Windows)</h3>
+ - - - <ol>
+ - - - - - - - <li>In the AWS Console, select your instance</li>
+ - - - - - - - <li>Click <strong>"Actions"</strong> > <strong>"Security"</strong> > <strong>"Get Windows password"</strong></li>
+ - - - - - - - <li>Click <strong>"Upload private key file"</strong> and select your <code>.pem</code> file from Downloads</li>
+ - - - - - - - <li>Click <strong>"Decrypt password"</strong></li>
+ - - - - - - - <li><strong>Copy the password</strong> (Cmd+C)</li>
+ - - - </ol>
 
-    <h3>4M.3 Connect Using the .rdp File</h3>
-    <ol>
-        <li>In the AWS Console, click <strong>"Connect"</strong> > <strong>"RDP client"</strong> tab</li>
-        <li>Click <strong>"Download remote desktop file"</strong></li>
-        <li>The <code>.rdp</code> file downloads to your <strong>Downloads</strong> folder</li>
-        <li>Double-click the <code>.rdp</code> file — it opens in Microsoft Remote Desktop</li>
-    </ol>
+ - - - <h3>4M.3 Connect Using the .rdp File</h3>
+ - - - <ol>
+ - - - - - - - <li>In the AWS Console, click <strong>"Connect"</strong> > <strong>"RDP client"</strong> tab</li>
+ - - - - - - - <li>Click <strong>"Download remote desktop file"</strong></li>
+ - - - - - - - <li>The <code>.rdp</code> file downloads to your <strong>Downloads</strong> folder</li>
+ - - - - - - - <li>Double-click the <code>.rdp</code> file - it opens in Microsoft Remote Desktop</li>
+ - - - </ol>
 
-    <h3>4M.4 Enter Credentials</h3>
-    <ol>
-        <li>A login window appears asking for credentials</li>
-        <li>Username: <code>Administrator</code></li>
-        <li>Password: <strong>paste the password you copied</strong> (Cmd+V)</li>
-        <li>Click <strong>"Continue"</strong></li>
-    </ol>
+ - - - <h3>4M.4 Enter Credentials</h3>
+ - - - <ol>
+ - - - - - - - <li>A login window appears asking for credentials</li>
+ - - - - - - - <li>Username: <code>Administrator</code></li>
+ - - - - - - - <li>Password: <strong>paste the password you copied</strong> (Cmd+V)</li>
+ - - - - - - - <li>Click <strong>"Continue"</strong></li>
+ - - - </ol>
 
-    <h3>4M.5 Accept the Certificate</h3>
-    <ol>
-        <li>You'll see a warning: "The certificate could not be verified..."</li>
-        <li>Click <strong>"Continue"</strong> — this is safe, you just created this machine</li>
-    </ol>
+ - - - <h3>4M.5 Accept the Certificate</h3>
+ - - - <ol>
+ - - - - - - - <li>You'll see a warning: "The certificate could not be verified..."</li>
+ - - - - - - - <li>Click <strong>"Continue"</strong> - this is safe, you just created this machine</li>
+ - - - </ol>
 
-    <div class="success">
-        🎉 <strong>You should now see the Windows desktop in a window on your Mac!</strong> You can resize it, go full screen (green button), or use Cmd+F to toggle.
-    </div>
+ - - - <div class="success">
+ - - - - - - - 🎉 <strong>You should now see the Windows desktop in a window on your Mac!</strong> You can resize it, go full screen (green button), or use Cmd+F to toggle.
+ - - - </div>
 
-    <h3>Helpful Mac Tips</h3>
-    <ul>
-        <li><strong>Copy/Paste between Mac and Windows:</strong> Cmd+C on Mac, then Ctrl+V inside the Windows session</li>
-        <li><strong>Full screen:</strong> Click the green circle (top-left of window) or use Cmd+F</li>
-        <li><strong>Exit full screen:</strong> Move mouse to top of screen, click the green circle again</li>
-        <li><strong>Right-click:</strong> Two-finger tap on trackpad, or Ctrl+click</li>
-    </ul>
+ - - - <h3>Helpful Mac Tips</h3>
+ - - - <ul>
+ - - - - - - - <li><strong>Copy/Paste between Mac and Windows:</strong> Cmd+C on Mac, then Ctrl+V inside the Windows session</li>
+ - - - - - - - <li><strong>Full screen:</strong> Click the green circle (top-left of window) or use Cmd+F</li>
+ - - - - - - - <li><strong>Exit full screen:</strong> Move mouse to top of screen, click the green circle again</li>
+ - - - - - - - <li><strong>Right-click:</strong> Two-finger tap on trackpad, or Ctrl+click</li>
+ - - - </ul>
 </div>
 
 <!-- STEP 4 LINUX -->
 <div class="step">
-    <h2>Step 4 (Linux): Connect from Linux</h2>
-    <p>If you're using Ubuntu, Fedora, or another Linux distro, follow these steps.</p>
+ - - - <h2>Step 4 (Linux): Connect from Linux</h2>
+ - - - <p>If you're using Ubuntu, Fedora, or another Linux distro, follow these steps.</p>
 
-    <h3>4L.1 Install Remmina (if not already installed)</h3>
-    <p>Remmina is pre-installed on most Ubuntu systems. If not:</p>
-    <pre>sudo apt install remmina remmina-plugin-rdp</pre>
-    <p>On Fedora:</p>
-    <pre>sudo dnf install remmina remmina-plugins-rdp</pre>
+ - - - <h3>4L.1 Install Remmina (if not already installed)</h3>
+ - - - <p>Remmina is pre-installed on most Ubuntu systems. If not:</p>
+ - - - <pre>sudo apt install remmina remmina-plugin-rdp</pre>
+ - - - <p>On Fedora:</p>
+ - - - <pre>sudo dnf install remmina remmina-plugins-rdp</pre>
 
-    <h3>4L.2 Get Your Password (Same as Windows/Mac)</h3>
-    <ol>
-        <li>In the AWS Console, select your instance</li>
-        <li>Click <strong>"Actions"</strong> > <strong>"Security"</strong> > <strong>"Get Windows password"</strong></li>
-        <li>Upload your <code>.pem</code> file and click <strong>"Decrypt password"</strong></li>
-        <li><strong>Copy the password</strong></li>
-    </ol>
+ - - - <h3>4L.2 Get Your Password (Same as Windows/Mac)</h3>
+ - - - <ol>
+ - - - - - - - <li>In the AWS Console, select your instance</li>
+ - - - - - - - <li>Click <strong>"Actions"</strong> > <strong>"Security"</strong> > <strong>"Get Windows password"</strong></li>
+ - - - - - - - <li>Upload your <code>.pem</code> file and click <strong>"Decrypt password"</strong></li>
+ - - - - - - - <li><strong>Copy the password</strong></li>
+ - - - </ol>
 
-    <h3>4L.3 Connect with Remmina</h3>
-    <ol>
-        <li>Open <strong>Remmina</strong> from your applications menu</li>
-        <li>In the top bar, select <strong>RDP</strong> from the protocol dropdown</li>
-        <li>In the address field, paste your instance's <strong>Public IPv4 address</strong></li>
-        <li>Press <strong>Enter</strong> to connect</li>
-    </ol>
+ - - - <h3>4L.3 Connect with Remmina</h3>
+ - - - <ol>
+ - - - - - - - <li>Open <strong>Remmina</strong> from your applications menu</li>
+ - - - - - - - <li>In the top bar, select <strong>RDP</strong> from the protocol dropdown</li>
+ - - - - - - - <li>In the address field, paste your instance's <strong>Public IPv4 address</strong></li>
+ - - - - - - - <li>Press <strong>Enter</strong> to connect</li>
+ - - - </ol>
 
-    <h3>4L.4 Enter Credentials</h3>
-    <ol>
-        <li>Username: <code>Administrator</code></li>
-        <li>Password: <strong>paste the decrypted password</strong></li>
-        <li>Domain: leave blank</li>
-        <li>Click <strong>OK</strong> or <strong>Connect</strong></li>
-    </ol>
+ - - - <h3>4L.4 Enter Credentials</h3>
+ - - - <ol>
+ - - - - - - - <li>Username: <code>Administrator</code></li>
+ - - - - - - - <li>Password: <strong>paste the decrypted password</strong></li>
+ - - - - - - - <li>Domain: leave blank</li>
+ - - - - - - - <li>Click <strong>OK</strong> or <strong>Connect</strong></li>
+ - - - </ol>
 
-    <h3>4L.5 Accept the Certificate</h3>
-    <ol>
-        <li>You'll see a certificate warning</li>
-        <li>Click <strong>"Yes"</strong> or <strong>"Accept"</strong></li>
-    </ol>
+ - - - <h3>4L.5 Accept the Certificate</h3>
+ - - - <ol>
+ - - - - - - - <li>You'll see a certificate warning</li>
+ - - - - - - - <li>Click <strong>"Yes"</strong> or <strong>"Accept"</strong></li>
+ - - - </ol>
 
-    <div class="success">
-        🎉 <strong>You should now see the Windows desktop inside Remmina!</strong>
-    </div>
+ - - - <div class="success">
+ - - - - - - - 🎉 <strong>You should now see the Windows desktop inside Remmina!</strong>
+ - - - </div>
 
-    <h3>Alternative: Using xfreerdp (command line)</h3>
-    <p>If Remmina doesn't work, you can connect via terminal:</p>
-    <pre>xfreerdp /v:YOUR-PUBLIC-IP /u:Administrator /p:'YOUR-PASSWORD' /size:1280x720</pre>
-    <p>Replace <code>YOUR-PUBLIC-IP</code> and <code>YOUR-PASSWORD</code> with your actual values.</p>
+ - - - <h3>Alternative: Using xfreerdp (command line)</h3>
+ - - - <p>If Remmina doesn't work, you can connect via terminal:</p>
+ - - - <pre>xfreerdp /v:YOUR-PUBLIC-IP /u:Administrator /p:'YOUR-PASSWORD' /size:1280x720</pre>
+ - - - <p>Replace <code>YOUR-PUBLIC-IP</code> and <code>YOUR-PASSWORD</code> with your actual values.</p>
 
-    <h3>Helpful Linux Tips</h3>
-    <ul>
-        <li><strong>Copy/Paste:</strong> Ctrl+C on Linux, then Ctrl+V inside the Windows session</li>
-        <li><strong>Full screen:</strong> Press Ctrl+Shift+F in Remmina</li>
-        <li><strong>Exit full screen:</strong> Press Ctrl+Shift+F again</li>
-        <li><strong>If connection fails:</strong> Make sure the instance's security group allows port 3389 from your IP</li>
-    </ul>
+ - - - <h3>Helpful Linux Tips</h3>
+ - - - <ul>
+ - - - - - - - <li><strong>Copy/Paste:</strong> Ctrl+C on Linux, then Ctrl+V inside the Windows session</li>
+ - - - - - - - <li><strong>Full screen:</strong> Press Ctrl+Shift+F in Remmina</li>
+ - - - - - - - <li><strong>Exit full screen:</strong> Press Ctrl+Shift+F again</li>
+ - - - - - - - <li><strong>If connection fails:</strong> Make sure the instance's security group allows port 3389 from your IP</li>
+ - - - </ul>
 </div>
 
 <!-- Continue to Step 5 note -->
 <div class="step">
-    <div class="info">
-        <strong>✅ Connected?</strong> Whether you used Windows, Mac, or Linux — you should now be looking at a Windows Server desktop. Continue to <strong>Step 5</strong> below. The remaining steps are the same for everyone.
-    </div>
+ - - - <div class="info">
+ - - - - - - - <strong>✅ Connected?</strong> Whether you used Windows, Mac, or Linux - you should now be looking at a Windows Server desktop. Continue to <strong>Step 5</strong> below. The remaining steps are the same for everyone.
+ - - - </div>
 </div>
 
 <!-- STEP 5 -->
 <div class="step">
-    <h2>Step 5: Deploy the AfChix Market Website</h2>
-    <p>Now for the coolest part — you'll install a web server and deploy a real shopping website. Anyone in the world will be able to see it!</p>
+ - - - <h2>Step 5: Deploy the AfChix Market Website</h2>
+ - - - <p>Now for the coolest part - you'll install a web server and deploy a real shopping website. Anyone in the world will be able to see it!</p>
 
-    <h3>5.1 Open PowerShell</h3>
-    <p>On your Windows remote desktop, click the <strong>Start menu</strong> and find <strong>"Windows PowerShell"</strong> (blue icon).</p>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Start menu showing PowerShell -->
-        <img src="screenshots/step5-open-powershell.png" alt="Opening PowerShell from Start menu">
-        <p>Find Windows PowerShell in the Start menu</p>
-    </div>
-    <div class="analogy">
-        💡 <strong>What is PowerShell?</strong> A command-line tool that lets you control the computer by typing instructions instead of clicking buttons. System administrators use this daily.
-    </div>
+ - - - <h3>5.1 Open PowerShell</h3>
+ - - - <p>On your Windows remote desktop, click the <strong>Start menu</strong> and find <strong>"Windows PowerShell"</strong> (blue icon).</p>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Start menu showing PowerShell -->
+ - - - - - - - <img src="screenshots/step5-open-powershell.png" alt="Opening PowerShell from Start menu">
+ - - - - - - - <p>Find Windows PowerShell in the Start menu</p>
+ - - - </div>
+ - - - <div class="analogy">
+ - - - - - - - 💡 <strong>What is PowerShell?</strong> A command-line tool that lets you control the computer by typing instructions instead of clicking buttons. System administrators use this daily.
+ - - - </div>
 
-    <h3>5.2 Install IIS (Web Server)</h3>
-    <p>Type this command and press <strong>Enter</strong>:</p>
-    <pre>Install-WindowsFeature -name Web-Server -IncludeManagementTools</pre>
-    <p><strong>What this does:</strong> Installs IIS (Internet Information Services) — Microsoft's web server software. Without it, your machine wouldn't know how to serve web pages to visitors.</p>
-    <p>Wait 1-2 minutes. You'll see <strong>"Success: True"</strong> when done.</p>
+ - - - <h3>5.2 Install IIS (Web Server)</h3>
+ - - - <p>Type this command and press <strong>Enter</strong>:</p>
+ - - - <pre>Install-WindowsFeature -name Web-Server -IncludeManagementTools</pre>
+ - - - <p><strong>What this does:</strong> Installs IIS (Internet Information Services) - Microsoft's web server software. Without it, your machine wouldn't know how to serve web pages to visitors.</p>
+ - - - <p>Wait 1-2 minutes. You'll see <strong>"Success: True"</strong> when done.</p>
 
-    <h3>5.3 Download the Website</h3>
-    <p>Type this command:</p>
-    <pre>Invoke-WebRequest -Uri "https://github.com/kira-PJ/afchix-cloud-workshop/archive/refs/heads/main.zip" -OutFile "C:\website.zip"</pre>
-    <p><strong>What this does:</strong> Goes to GitHub (where our website code is stored), downloads it as a zip file, and saves it to the server. Like downloading a file from the internet — but via command line.</p>
+ - - - <h3>5.3 Download the Website</h3>
+ - - - <p>Type this command:</p>
+ - - - <pre>Invoke-WebRequest -Uri "https://github.com/kira-PJ/afchix-cloud-workshop/archive/refs/heads/main.zip" -OutFile "C:\website.zip"</pre>
+ - - - <p><strong>What this does:</strong> Goes to GitHub (where our website code is stored), downloads it as a zip file, and saves it to the server. Like downloading a file from the internet - but via command line.</p>
 
-    <h3>5.4 Extract the Files</h3>
-    <pre>Expand-Archive -Path "C:\website.zip" -DestinationPath "C:\website" -Force</pre>
-    <p><strong>What this does:</strong> Unzips the downloaded file. Like right-clicking a .zip and choosing "Extract All".</p>
+ - - - <h3>5.4 Extract the Files</h3>
+ - - - <pre>Expand-Archive -Path "C:\website.zip" -DestinationPath "C:\website" -Force</pre>
+ - - - <p><strong>What this does:</strong> Unzips the downloaded file. Like right-clicking a .zip and choosing "Extract All".</p>
 
-    <h3>5.5 Copy to Web Server Folder</h3>
-    <pre>Copy-Item -Path "C:\website\afchix-cloud-workshop-main\*" -Destination "C:\inetpub\wwwroot\" -Recurse -Force</pre>
-    <p><strong>What this does:</strong> Copies all website files into IIS's special folder (<code>C:\inetpub\wwwroot\</code>). Anything placed here automatically becomes a live website. Like putting products on the shelf in your shop — once they're there, customers can see them.</p>
-    
-    <div class="screenshot">
-        <!-- SCREENSHOT: PowerShell showing all commands completed -->
-        <img src="screenshots/step5-commands-done.png" alt="All PowerShell commands completed">
-        <p>All 4 commands completed successfully</p>
-    </div>
+ - - - <h3>5.5 Copy to Web Server Folder</h3>
+ - - - <pre>Copy-Item -Path "C:\website\afchix-cloud-workshop-main\*" -Destination "C:\inetpub\wwwroot\" -Recurse -Force</pre>
+ - - - <p><strong>What this does:</strong> Copies all website files into IIS's special folder (<code>C:\inetpub\wwwroot\</code>). Anything placed here automatically becomes a live website. Like putting products on the shelf in your shop - once they're there, customers can see them.</p>
+ - - - 
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: PowerShell showing all commands completed -->
+ - - - - - - - <img src="screenshots/step5-commands-done.png" alt="All PowerShell commands completed">
+ - - - - - - - <p>All 4 commands completed successfully</p>
+ - - - </div>
 
-    <h3>5.6 View Your Live Website!</h3>
-    <ol>
-        <li>Go back to your <strong>laptop</strong> (not the remote desktop)</li>
-        <li>Open a <strong>new browser tab</strong></li>
-        <li>Find your instance's <strong>Public IPv4 address</strong> in the EC2 Console</li>
-        <li>Type in your browser: <code>http://YOUR-PUBLIC-IP</code> (e.g., <code>http://98.93.29.34</code>)</li>
-    </ol>
+ - - - <h3>5.6 View Your Live Website!</h3>
+ - - - <ol>
+ - - - - - - - <li>Go back to your <strong>laptop</strong> (not the remote desktop)</li>
+ - - - - - - - <li>Open a <strong>new browser tab</strong></li>
+ - - - - - - - <li>Find your instance's <strong>Public IPv4 address</strong> in the EC2 Console</li>
+ - - - - - - - <li>Type in your browser: <code>http://YOUR-PUBLIC-IP</code> (e.g., <code>http://98.93.29.34</code>)</li>
+ - - - </ol>
 
-    <div class="success">
-        🎉 <strong>You should see the AfChix Market website!</strong> A beautiful purple and pink shopping site with Kiondo bags, Maasai bracelets, coffee, and more!
-    </div>
-    <div class="screenshot">
-        <!-- SCREENSHOT: The website loading in browser with IP in address bar -->
-        <img src="screenshots/step5-website-live.png" alt="AfChix Market website live">
-        <p>YOUR website, hosted on YOUR virtual machine, live on the internet!</p>
-    </div>
-    <div class="analogy">
-        💡 Notice the IP address in the browser bar — this is your machine's address on the internet. If you shared this IP with a friend in another country, they could see this website too. This is exactly how real websites work!
-    </div>
+ - - - <div class="success">
+ - - - - - - - 🎉 <strong>You should see the AfChix Market website!</strong> A beautiful purple and pink shopping site with Kiondo bags, Maasai bracelets, coffee, and more!
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: The website loading in browser with IP in address bar -->
+ - - - - - - - <img src="screenshots/step5-website-live.png" alt="AfChix Market website live">
+ - - - - - - - <p>YOUR website, hosted on YOUR virtual machine, live on the internet!</p>
+ - - - </div>
+ - - - <div class="analogy">
+ - - - - - - - 💡 Notice the IP address in the browser bar - this is your machine's address on the internet. If you shared this IP with a friend in another country, they could see this website too. This is exactly how real websites work!
+ - - - </div>
 
-    <h3>5.7 Personalize Your Website (Make it Yours!)</h3>
-    <p>Let's add your name to the website. In PowerShell, type this command (replace <code>YourNickname</code> with your name):</p>
-    <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by YourNickname at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
-    <p><strong>Example:</strong> If your nickname is GraceK:</p>
-    <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by GraceK at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
-    <p><strong>What this does:</strong> Opens the website file, finds specific text, replaces it with your name, and saves. This is real web development — editing a live website!</p>
-    <p>Now <strong>refresh your browser</strong> — you'll see your name on the pink badge! 📸 <strong>Take a screenshot!</strong></p>
+ - - - <h3>5.7 Personalize Your Website (Make it Yours!)</h3>
+ - - - <p>Let's add your name to the website. In PowerShell, type this command (replace <code>YourNickname</code> with your name):</p>
+ - - - <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by YourNickname at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
+ - - - <p><strong>Example:</strong> If your nickname is GraceK:</p>
+ - - - <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by GraceK at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
+ - - - <p><strong>What this does:</strong> Opens the website file, finds specific text, replaces it with your name, and saves. This is real web development - editing a live website!</p>
+ - - - <p>Now <strong>refresh your browser</strong> - you'll see your name on the pink badge! 📸 <strong>Take a screenshot!</strong></p>
 </div>
 
 <!-- STEP 6 -->
 <div class="step">
-    <h2>Step 6: Clean Up</h2>
-    <p>When you're done with a cloud resource, always delete it. Otherwise it keeps running and costs money.</p>
-    <ol>
-        <li>Go to <strong>EC2 Dashboard</strong> > <strong>Instances</strong></li>
-        <li>Select your instance (checkbox next to your name)</li>
-        <li>Click <strong>"Instance state"</strong> > <strong>"Terminate (delete) instance"</strong></li>
-        <li>Click <strong>"Terminate (delete)"</strong> to confirm</li>
-    </ol>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Terminate instance dropdown -->
-        <img src="screenshots/step6-terminate-menu.png" alt="Terminate instance menu">
-        <p>Select Terminate (delete) instance</p>
-    </div>
-    <div class="screenshot">
-        <!-- SCREENSHOT: Terminate confirmation dialog -->
-        <img src="screenshots/step6-terminate-confirm.png" alt="Terminate confirmation">
-        <p>Confirm termination — your machine will be deleted</p>
-    </div>
-    <div class="warning">
-        💰 <strong>Why this matters:</strong> A t3.medium costs ~$0.04/hour = ~$30/month if you forget. In the real world, forgetting to terminate is how people get surprise AWS bills!
-    </div>
+ - - - <h2>Step 6: Clean Up</h2>
+ - - - <p>When you're done with a cloud resource, always delete it. Otherwise it keeps running and costs money.</p>
+ - - - <ol>
+ - - - - - - - <li>Go to <strong>EC2 Dashboard</strong> > <strong>Instances</strong></li>
+ - - - - - - - <li>Select your instance (checkbox next to your name)</li>
+ - - - - - - - <li>Click <strong>"Instance state"</strong> > <strong>"Terminate (delete) instance"</strong></li>
+ - - - - - - - <li>Click <strong>"Terminate (delete)"</strong> to confirm</li>
+ - - - </ol>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Terminate instance dropdown -->
+ - - - - - - - <img src="screenshots/step6-terminate-menu.png" alt="Terminate instance menu">
+ - - - - - - - <p>Select Terminate (delete) instance</p>
+ - - - </div>
+ - - - <div class="screenshot">
+ - - - - - - - <!-- SCREENSHOT: Terminate confirmation dialog -->
+ - - - - - - - <img src="screenshots/step6-terminate-confirm.png" alt="Terminate confirmation">
+ - - - - - - - <p>Confirm termination - your machine will be deleted</p>
+ - - - </div>
+ - - - <div class="warning">
+ - - - - - - - 💰 <strong>Why this matters:</strong> A t3.medium costs ~$0.04/hour = ~$30/month if you forget. In the real world, forgetting to terminate is how people get surprise AWS bills!
+ - - - </div>
 </div>
 
 <!-- CONGRATULATIONS -->
 <div class="step">
-    <h2>🎉 Congratulations!</h2>
-    <p>Today you:</p>
-    <ul>
-        <li>✅ Logged into the AWS Management Console</li>
-        <li>✅ Launched a Windows virtual machine in a data center in the USA</li>
-        <li>✅ Connected to it remotely from your laptop in Nairobi</li>
-        <li>✅ Installed a web server</li>
-        <li>✅ Deployed a real e-commerce website to the internet</li>
-        <li>✅ Personalized it with your name</li>
-        <li>✅ Cleaned up your cloud resources</li>
-    </ul>
-    <p>You now understand the basics of cloud computing. This is what cloud engineers, DevOps engineers, and solutions architects do every day — just with bigger, more complex systems.</p>
-    
-    <h3>What's next?</h3>
-    <ul>
-        <li>Create your own free AWS account (aws.amazon.com — free tier available for 12 months)</li>
-        <li>Start with the <strong>AWS Cloud Practitioner</strong> certification</li>
-        <li>Join the <strong>AWS User Group Kenya</strong> community</li>
-    </ul>
+ - - - <h2>🎉 Congratulations!</h2>
+ - - - <p>Today you:</p>
+ - - - <ul>
+ - - - - - - - <li>✅ Logged into the AWS Management Console</li>
+ - - - - - - - <li>✅ Launched a Windows virtual machine in a data center in the USA</li>
+ - - - - - - - <li>✅ Connected to it remotely from your laptop in Nairobi</li>
+ - - - - - - - <li>✅ Installed a web server</li>
+ - - - - - - - <li>✅ Deployed a real e-commerce website to the internet</li>
+ - - - - - - - <li>✅ Personalized it with your name</li>
+ - - - - - - - <li>✅ Cleaned up your cloud resources</li>
+ - - - </ul>
+ - - - <p>You now understand the basics of cloud computing. This is what cloud engineers, DevOps engineers, and solutions architects do every day - just with bigger, more complex systems.</p>
+ - - - 
+ - - - <h3>What's next?</h3>
+ - - - <ul>
+ - - - - - - - <li>Create your own free AWS account (aws.amazon.com - free tier available for 12 months)</li>
+ - - - - - - - <li>Start with the <strong>AWS Cloud Practitioner</strong> certification</li>
+ - - - - - - - <li>Join the <strong>AWS User Group Kenya</strong> community</li>
+ - - - </ul>
 </div>
 
 <!-- TROUBLESHOOTING -->
 <div class="step">
-    <h2>Troubleshooting</h2>
-    <table>
-        <tr><th>Problem</th><th>Solution</th></tr>
-        <tr><td>"Password not available yet"</td><td>Wait 4-5 minutes after launch, then try again</td></tr>
-        <tr><td>Cannot connect via RDP</td><td>Check instance is "Running" with "3/3 checks passed"</td></tr>
-        <tr><td>Connection timeout</td><td>Wait for status checks. Check you're using the correct Public IP</td></tr>
-        <tr><td>Wrong password</td><td>Make sure you uploaded the correct .pem file</td></tr>
-        <tr><td>Website not loading</td><td>Check you enabled "Allow HTTP traffic" during launch. Use http:// not https://</td></tr>
-        <tr><td>RDP file doesn't open (Mac)</td><td>Install Microsoft Remote Desktop from App Store first</td></tr>
-        <tr><td>Instance won't launch</td><td>Ask the trainer — might be a quota issue</td></tr>
-    </table>
+ - - - <h2>Troubleshooting</h2>
+ - - - <table>
+ - - - - - - - <tr><th>Problem</th><th>Solution</th></tr>
+ - - - - - - - <tr><td>"Password not available yet"</td><td>Wait 4-5 minutes after launch, then try again</td></tr>
+ - - - - - - - <tr><td>Cannot connect via RDP</td><td>Check instance is "Running" with "3/3 checks passed"</td></tr>
+ - - - - - - - <tr><td>Connection timeout</td><td>Wait for status checks. Check you're using the correct Public IP</td></tr>
+ - - - - - - - <tr><td>Wrong password</td><td>Make sure you uploaded the correct .pem file</td></tr>
+ - - - - - - - <tr><td>Website not loading</td><td>Check you enabled "Allow HTTP traffic" during launch. Use http:// not https://</td></tr>
+ - - - - - - - <tr><td>RDP file doesn't open (Mac)</td><td>Install Microsoft Remote Desktop from App Store first</td></tr>
+ - - - - - - - <tr><td>Instance won't launch</td><td>Ask the trainer - might be a quota issue</td></tr>
+ - - - </table>
 </div>
 
 </div><!-- end container -->
 
 <footer>
-    <p><strong>AfChix Women in Tech Workshop</strong></p>
-    <p>June 26, 2026 | Nairobi, Kenya</p>
-    <p style="margin-top: 8px;">Trainer: Pauline Namwakira | AWS Authorized Instructor</p>
-    <p style="margin-top: 12px; opacity: 0.6;">Powered by <strong>SentiBay Consulting</strong> — sentibay.com</p>
+ - - - <p><strong>AfChix Women in Tech Workshop</strong></p>
+ - - - <p>June 26, 2026 | Nairobi, Kenya</p>
+ - - - <p style="margin-top: 8px;">Trainer: Pauline Namwakira | AWS Authorized Instructor</p>
+ - - - <p style="margin-top: 12px; opacity: 0.6;">Powered by <strong>SentiBay Consulting</strong> - sentibay.com</p>
 </footer>
 
 </body>
