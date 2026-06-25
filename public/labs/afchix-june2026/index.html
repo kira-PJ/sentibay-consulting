@@ -157,8 +157,9 @@
         We are all working in the same AWS account today. You will see other participants' resources. <strong>Only interact with resources that have YOUR name on them.</strong> Do not stop, terminate, or modify anyone else's resources.
     </div>
     <div class="info">
-        <strong>📝 Naming Convention:</strong> Use your first name in everything you create today.<br>
-        Instance name: <code>AfChix-Grace</code> | Key pair: <code>key-grace</code>
+        <strong>📝 Naming Convention:</strong> Use a <strong>unique nickname</strong> in everything you create today. This can be your first name + last initial, or a nickname no one else will have.<br><br>
+        Examples: <code>AfChix-GraceK</code> | <code>AfChix-Wanjiku</code> | <code>key-gracek</code><br><br>
+        <em>If two people share a first name, add your last initial to make it unique!</em>
     </div>
 </div>
 
@@ -261,7 +262,7 @@
     <p>Click the orange <strong>"Launch instance"</strong> button.</p>
 
     <h3>3.2 Name Your Instance</h3>
-    <p>Under "Name and tags", type: <code>AfChix-YourName</code> (e.g., <code>AfChix-Grace</code>)</p>
+    <p>Under "Name and tags", type: <code>AfChix-YourNickname</code> (e.g., <code>AfChix-GraceK</code> or <code>AfChix-Wanjiku</code>)</p>
     <div class="screenshot">
         <!-- SCREENSHOT: Name field filled in -->
         <img src="screenshots/step3-name.png" alt="Naming the instance">
@@ -294,7 +295,7 @@
     </div>
     <ol>
         <li>Click <strong>"Create new key pair"</strong></li>
-        <li>Key pair name: <code>key-yourname</code> (e.g., <code>key-grace</code>)</li>
+        <li>Key pair name: <code>key-yournickname</code> (e.g., <code>key-gracek</code>)</li>
         <li>Key pair type: <strong>RSA</strong></li>
         <li>Format: <strong>.pem</strong></li>
         <li>Click <strong>"Create key pair"</strong></li>
@@ -434,7 +435,7 @@
     </div>
 
     <h3>Tags Tab</h3>
-    <p>Labels on your instance. You should see: <strong>Name = AfChix-YourName</strong></p>
+    <p>Labels on your instance. You should see: <strong>Name = AfChix-YourNickname</strong></p>
     <div class="screenshot">
         <!-- SCREENSHOT: Tags tab -->
         <img src="screenshots/step3b-tags.png" alt="Tags">
@@ -533,7 +534,7 @@
         <li>Wait for it to download and install</li>
     </ol>
     <div class="warning">
-        ⚠️ <strong>Do this BEFORE the workshop!</strong> App Store downloads can be slow on shared wifi.
+        ⚠️ <strong>Mac users:</strong> You'll need to install Microsoft Remote Desktop from the App Store. The trainer will guide you through this during the workshop.
     </div>
 
     <h3>4M.2 Get Your Password (Same as Windows)</h3>
@@ -708,10 +709,10 @@
     </div>
 
     <h3>5.7 Personalize Your Website (Make it Yours!)</h3>
-    <p>Let's add your name to the website. In PowerShell, type this command (replace <code>YourName</code> with your actual name):</p>
-    <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by YourName at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
-    <p><strong>Example:</strong> If your name is Grace:</p>
-    <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by Grace at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
+    <p>Let's add your name to the website. In PowerShell, type this command (replace <code>YourNickname</code> with your name):</p>
+    <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by YourNickname at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
+    <p><strong>Example:</strong> If your nickname is GraceK:</p>
+    <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by GraceK at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
     <p><strong>What this does:</strong> Opens the website file, finds specific text, replaces it with your name, and saves. This is real web development — editing a live website!</p>
     <p>Now <strong>refresh your browser</strong> — you'll see your name on the pink badge! 📸 <strong>Take a screenshot!</strong></p>
 </div>
