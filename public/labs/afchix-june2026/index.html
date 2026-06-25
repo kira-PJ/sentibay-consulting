@@ -58,7 +58,10 @@
 
         /* Code */
         code { background: #F5F0EB; color: #1B5E20; padding: 3px 8px; border-radius: 5px; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 13px; font-weight: 500; }
-        pre { background: #1a1a1a; color: #e0e0e0; padding: 20px; border-radius: 12px; overflow-x: auto; margin: 14px 0; font-size: 13px; line-height: 1.6; }
+        pre { background: #1a1a1a; color: #e0e0e0; padding: 20px; padding-right: 70px; border-radius: 12px; overflow-x: auto; margin: 0; font-size: 13px; line-height: 1.6; }
+        .cmd-block { position: relative; margin: 14px 0; }
+        .copy-btn { position: absolute; top: 10px; right: 10px; background: #D4764E; color: white; border: none; padding: 5px 14px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.2s; z-index: 1; }
+        .copy-btn:hover { background: #b8603f; transform: scale(1.05); }
 
         /* Screenshots */
         .screenshot { background: #FAFAFA; border: 1px solid #eee; border-radius: 12px; padding: 16px; margin: 18px 0; text-align: center; }
@@ -559,9 +562,9 @@
 
     <h3>4L.1 Install Remmina (if not already installed)</h3>
     <p>Remmina is pre-installed on most Ubuntu systems. If not:</p>
-    <pre>sudo apt install remmina remmina-plugin-rdp</pre>
+    <div class="cmd-block"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><pre>sudo apt install remmina remmina-plugin-rdp</pre></div>
     <p>On Fedora:</p>
-    <pre>sudo dnf install remmina remmina-plugins-rdp</pre>
+    <div class="cmd-block"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><pre>sudo dnf install remmina remmina-plugins-rdp</pre></div>
 
     <h3>4L.2 Get Your Password (Same as Windows/Mac)</h3>
     <ol>
@@ -599,7 +602,7 @@
 
     <h3>Alternative: Using xfreerdp (command line)</h3>
     <p>If Remmina doesn't work, you can connect via terminal:</p>
-    <pre>xfreerdp /v:YOUR-PUBLIC-IP /u:Administrator /p:'YOUR-PASSWORD' /size:1280x720</pre>
+    <div class="cmd-block"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><pre>xfreerdp /v:YOUR-PUBLIC-IP /u:Administrator /p:'YOUR-PASSWORD' /size:1280x720</pre></div>
     <p>Replace <code>YOUR-PUBLIC-IP</code> and <code>YOUR-PASSWORD</code> with your actual values.</p>
 
     <h3>Helpful Linux Tips</h3>
@@ -635,22 +638,22 @@
     </div>
 
     <h3>5.2 Install IIS (Web Server)</h3>
-    <p>Type this command and press <strong>Enter</strong>:</p>
-    <pre>Install-WindowsFeature -name Web-Server -IncludeManagementTools</pre>
+    <p>Copy this command (click the Copy button) and paste it in PowerShell, then press <strong>Enter</strong>:</p>
+    <div class="cmd-block"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><pre>Install-WindowsFeature -name Web-Server -IncludeManagementTools</pre></div>
     <p><strong>What this does:</strong> Installs IIS (Internet Information Services) - Microsoft's web server software. Without it, your machine wouldn't know how to serve web pages to visitors.</p>
     <p>Wait 1-2 minutes. You'll see <strong>"Success: True"</strong> when done.</p>
 
     <h3>5.3 Download the Website</h3>
-    <p>Type this command:</p>
-    <pre>Invoke-WebRequest -Uri "https://github.com/kira-PJ/afchix-cloud-workshop/archive/refs/heads/main.zip" -OutFile "C:\website.zip"</pre>
+    <p>Copy and paste this command:</p>
+    <div class="cmd-block"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><pre>Invoke-WebRequest -Uri "https://github.com/kira-PJ/afchix-cloud-workshop/archive/refs/heads/main.zip" -OutFile "C:\website.zip"</pre></div>
     <p><strong>What this does:</strong> Goes to GitHub (where our website code is stored), downloads it as a zip file, and saves it to the server. Like downloading a file from the internet - but via command line.</p>
 
     <h3>5.4 Extract the Files</h3>
-    <pre>Expand-Archive -Path "C:\website.zip" -DestinationPath "C:\website" -Force</pre>
+    <div class="cmd-block"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><pre>Expand-Archive -Path "C:\website.zip" -DestinationPath "C:\website" -Force</pre></div>
     <p><strong>What this does:</strong> Unzips the downloaded file. Like right-clicking a .zip and choosing "Extract All".</p>
 
     <h3>5.5 Copy to Web Server Folder</h3>
-    <pre>Copy-Item -Path "C:\website\afchix-cloud-workshop-main\*" -Destination "C:\inetpub\wwwroot\" -Recurse -Force</pre>
+    <div class="cmd-block"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><pre>Copy-Item -Path "C:\website\afchix-cloud-workshop-main\*" -Destination "C:\inetpub\wwwroot\" -Recurse -Force</pre></div>
     <p><strong>What this does:</strong> Copies all website files into IIS's special folder (<code>C:\inetpub\wwwroot\</code>). Anything placed here automatically becomes a live website. Like putting products on the shelf in your shop - once they're there, customers can see them.</p>
     
     <div class="screenshot">
@@ -681,9 +684,9 @@
 
     <h3>5.7 Personalize Your Website (Make it Yours!)</h3>
     <p>Let's add your name to the website. In PowerShell, type this command (replace <code>YourNickname</code> with your name):</p>
-    <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by YourNickname at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
+    <div class="cmd-block"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by YourNickname at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre></div>
     <p><strong>Example:</strong> If your nickname is GraceK:</p>
-    <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by GraceK at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
+    <div class="cmd-block"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by GraceK at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre></div>
     <p><strong>What this does:</strong> Opens the website file, finds specific text, replaces it with your name, and saves. This is real web development - editing a live website!</p>
     <p>Now <strong>refresh your browser</strong> - you'll see your name on the pink badge! 📸 <strong>Take a screenshot!</strong></p>
 </div>
@@ -760,5 +763,16 @@
     <p style="margin-top: 12px; opacity: 0.6;">Powered by <strong>SentiBay Consulting</strong> - sentibay.com</p>
 </footer>
 
+
+<script>
+function copyCmd(btn) {
+    const pre = btn.parentElement.querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+        btn.textContent = 'Copied!';
+        btn.style.background = '#48BB78';
+        setTimeout(() => { btn.textContent = 'Copy'; btn.style.background = '#D4764E'; }, 2000);
+    });
+}
+</script>
 </body>
 </html>
