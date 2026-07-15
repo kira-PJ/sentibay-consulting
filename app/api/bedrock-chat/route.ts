@@ -4,12 +4,21 @@ import {
   InvokeAgentCommand,
 } from "@aws-sdk/client-bedrock-agent-runtime";
 
-const client = new BedrockAgentRuntimeClient({
-  region: process.env.BEDROCK_REGION || "us-east-1",
-});
-
 const AGENT_ID = process.env.BEDROCK_AGENT_ID || "";
 const AGENT_ALIAS_ID = process.env.BEDROCK_AGENT_ALIAS_ID || "";
+
+function getClient() {
+  const region = process.env.BEDROCK_REGION || "us-east-1";
+  const accessKeyId = process.env.APP_AWS_ACCESS_KEY_ID;
+  const secretAccessKey = process.env.APP_AWS_SECRET_ACCESS_KEY;
+
+  const config: Record<string, unknown> = { region };
+  if (accessKeyId && secretAccessKey) {
+    config.credentials = { accessKeyId, secretAccessKey };
+  }
+
+  return new BedrockAgentRuntimeClient(config);
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -37,6 +46,7 @@ export async function POST(request: NextRequest) {
       enableTrace: true,
     });
 
+    const client = getClient();
     const response = await client.send(command);
 
     let fullResponse = "";

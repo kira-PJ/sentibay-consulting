@@ -6,7 +6,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - env | grep -e APP_AWS_REGION -e APP_AWS_ACCESS_KEY_ID -e APP_AWS_SECRET_ACCESS_KEY -e DYNAMODB_TABLE_INQUIRIES -e SES_FROM_EMAIL >> .env.production
+        - env | grep -e APP_AWS_REGION -e APP_AWS_ACCESS_KEY_ID -e APP_AWS_SECRET_ACCESS_KEY -e DYNAMODB_TABLE_INQUIRIES -e SES_FROM_EMAIL -e BEDROCK_AGENT_ID -e BEDROCK_AGENT_ALIAS_ID -e BEDROCK_REGION >> .env.production
         - npm run build
   artifacts:
     baseDirectory: .next
