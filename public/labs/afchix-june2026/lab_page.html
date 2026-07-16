@@ -39,7 +39,7 @@
 <header>
     <h1>AfChix Cloud Computing Workshop</h1>
     <p>Launch a Windows Virtual Machine & Host a Website in the Cloud</p>
-    <p style="margin-top:10px; font-size:13px; opacity:0.8;">June 26, 2026 | Nairobi, Kenya | Trainer: Pauline Namwakira</p>
+    <p style="margin-top:10px; font-size:13px; opacity:0.8;">July 16, 2026 | Nairobi, Kenya | Trainer: Pauline Namwakira</p>
 </header>
 
 <div class="container">
@@ -52,7 +52,7 @@
     </div>
     <div class="info">
         <strong>📝 Naming Convention:</strong> Use your first name in everything you create today.<br>
-        Instance name: <code>AfChix-Grace</code> | Key pair: <code>key-grace</code>
+        Instance name: <code>AfChix-Grace</code> | Key pair: <code>key-grace</code> | Security group: <code>afchix-grace</code>
     </div>
 </div>
 
@@ -63,7 +63,7 @@
     <h3>Part A: Accept the Invitation (before the workshop)</h3>
     <ol>
         <li>Check your email for a message from <strong>no-reply@login.awsapps.com</strong> with subject "Invitation to join AWS IAM Identity Center"</li>
-        <li>Open the email — you will see a green <strong>"Accept invitation"</strong> button, your portal URL, and your username</li>
+        <li>Open the email, you will see a green <strong>"Accept invitation"</strong> button, your portal URL, and your username</li>
         <li>Click <strong>"Accept invitation"</strong></li>
     </ol>
     <div class="screenshot">
@@ -109,7 +109,7 @@
     <h3>Part C: Enter the AWS Console</h3>
     <ol>
         <li>You'll see the <strong>"AWS access portal"</strong> page with one account listed</li>
-        <li>Click the <strong>arrow (▶)</strong> next to the account name to expand it</li>
+        <li>Click the <strong>account name</strong> (e.g., "jpauline") to expand it and reveal the role underneath</li>
         <li>Click <strong>"Access keys"</strong> or the role name to open the Console</li>
     </ol>
     <div class="screenshot">
@@ -124,7 +124,7 @@
     </div>
 
     <div class="analogy">
-        💡 <strong>What is this?</strong> This is the AWS Console — the control panel where cloud engineers manage all their cloud resources. Think of it as a building manager's dashboard where you can see and control every apartment in the building.
+        💡 <strong>What is this?</strong> This is the AWS Console, the control panel where cloud engineers manage all their cloud resources. Think of it as a building manager's dashboard where you can see and control every apartment in the building.
     </div>
 </div>
 
@@ -153,14 +153,14 @@
     </div>
 
     <div class="analogy">
-        💡 <strong>What is EC2?</strong> EC2 = Elastic Compute Cloud. It lets you rent virtual computers (called "instances") in AWS data centers. Think of it as renting a laptop that lives in the cloud — except it's much more powerful and you can access it from anywhere.
+        💡 <strong>What is EC2?</strong> EC2 = Elastic Compute Cloud. It lets you rent virtual computers (called "instances") in AWS data centers. Think of it as renting a laptop that lives in the cloud, except it's much more powerful and you can access it from anywhere.
     </div>
 </div>
 
 <!-- STEP 3 -->
 <div class="step">
     <h2>Step 3: Launch a Windows Instance</h2>
-    <p>This is where the fun begins. You're about to create a virtual computer running Windows — in the cloud!</p>
+    <p>This is where the fun begins. You're about to create a virtual computer running Windows, in the cloud!</p>
 
     <h3>3.1 Start the Launch Wizard</h3>
     <p>Click the orange <strong>"Launch instance"</strong> button.</p>
@@ -203,7 +203,7 @@
         <li>Key pair type: <strong>RSA</strong></li>
         <li>Format: <strong>.pem</strong></li>
         <li>Click <strong>"Create key pair"</strong></li>
-        <li>A <code>.pem</code> file will download — <strong>keep this file safe!</strong></li>
+        <li>A <code>.pem</code> file will download, <strong>keep this file safe!</strong></li>
     </ol>
     <div class="screenshot">
         <!-- SCREENSHOT: Create key pair dialog -->
@@ -219,21 +219,37 @@
         💡 <strong>What is a key pair?</strong> It's like a special lock and key for your machine. The .pem file is the "key" that proves you're the owner. Without it, you can't get the password to log in.
     </div>
 
-    <h3>3.6 Network Settings (Firewall)</h3>
-    <p>Click <strong>"Edit"</strong> on the Network settings section, then check these boxes:</p>
-    <ul>
-        <li>✅ <strong>Allow RDP traffic from</strong> — Anywhere (0.0.0.0/0)</li>
-        <li>✅ <strong>Allow HTTP traffic from the internet</strong></li>
-    </ul>
+    <h3>3.6 Network Settings (Security Group)</h3>
+    <p>Under "Network settings", click <strong>"Edit"</strong> (top-right of this section).</p>
+    
+    <div class="warning">
+        <strong>Important:</strong> You MUST create your own security group with a unique name. Do NOT use the default or someone else's security group. If many people try to edit the same group at the same time, it fails.
+    </div>
+    
+    <ol>
+        <li>Select <strong>"Create security group"</strong> (should already be selected)</li>
+        <li>In <strong>"Security group name"</strong>, type: <code>afchix-yourname</code> (e.g., <code>afchix-grace</code>)</li>
+        <li>In <strong>"Description"</strong>, type: <code>allow rdp and http access</code></li>
+        <li>Under <strong>"Inbound Security Group Rules"</strong>, you should see:
+            <ul>
+                <li><strong>Security group rule 1:</strong> Type = <code>rdp</code>, Protocol = TCP, Port range = 3389, Source = Anywhere (0.0.0.0/0)</li>
+            </ul>
+        </li>
+        <li>Click <strong>"Add security group rule"</strong> to add a second rule:
+            <ul>
+                <li><strong>Security group rule 2:</strong> Type = <code>HTTP</code>, Protocol = TCP, Port range = 80, Source type = Anywhere (0.0.0.0/0)</li>
+            </ul>
+        </li>
+    </ol>
     <div class="screenshot">
-        <!-- SCREENSHOT: Network settings with RDP and HTTP checked -->
-        <img src="screenshots/step3-network-settings.png" alt="Network settings">
-        <p>Make sure RDP and HTTP are both checked</p>
+        <img src="screenshots/step3-networksettings-revised.png" alt="Create security group with unique name">
+        <p>Create your own security group with YOUR name, RDP (3389) and HTTP (80) rules</p>
     </div>
     <div class="analogy">
-        💡 <strong>What are these?</strong> Think of them as doors on your apartment:<br>
+        💡 <strong>What is a security group?</strong> Think of it as doors on your apartment:<br>
         • <strong>RDP (port 3389)</strong> = the door YOU use to walk in and control your machine<br>
-        • <strong>HTTP (port 80)</strong> = the shop window that lets visitors see your website
+        • <strong>HTTP (port 80)</strong> = the shop window that lets visitors see your website<br>
+        Each person needs their own security group so we don't step on each other's settings.
     </div>
 
     <h3>3.7 Launch!</h3>
@@ -255,7 +271,7 @@
         <li><strong>Instance state:</strong> Running (green dot) ✅</li>
         <li><strong>Status check:</strong> 3/3 checks passed ✅</li>
     </ul>
-    <p>This takes <strong>3-5 minutes</strong> — be patient!</p>
+    <p>This takes <strong>3-5 minutes</strong>, be patient!</p>
     <div class="screenshot">
         <!-- SCREENSHOT: Instance running with 3/3 checks -->
         <img src="screenshots/step3-instance-running.png" alt="Instance running">
@@ -269,7 +285,7 @@
 <!-- STEP 3B: EXPLORE DETAILS -->
 <div class="step">
     <h2>Step 3B: Explore Your Instance (Quick Tour)</h2>
-    <p>Click your instance name to see its details. You'll see several tabs — let's explore what each one shows:</p>
+    <p>Click your instance name to see its details. You'll see several tabs, let's explore what each one shows:</p>
 
     <h3>Details Tab</h3>
     <p>The "ID card" of your virtual machine:</p>
@@ -278,7 +294,7 @@
         <tr><td><strong>Instance ID</strong></td><td>Unique serial number (e.g., i-087289055bbbd2c3d)</td></tr>
         <tr><td><strong>Instance state</strong></td><td>Running, stopped, or terminated</td></tr>
         <tr><td><strong>Instance type</strong></td><td>The size: t3.medium (2 vCPU, 4 GiB RAM)</td></tr>
-        <tr><td><strong>Public IPv4 address</strong></td><td>Your machine's internet address — used to connect and view website</td></tr>
+        <tr><td><strong>Public IPv4 address</strong></td><td>Your machine's internet address, used to connect and view website</td></tr>
         <tr><td><strong>Private IPv4 address</strong></td><td>Internal address only visible within AWS</td></tr>
         <tr><td><strong>VPC ID</strong></td><td>The virtual network your machine lives in</td></tr>
         <tr><td><strong>Availability Zone</strong></td><td>The specific data center (e.g., us-east-1a)</td></tr>
@@ -290,7 +306,7 @@
     </div>
 
     <h3>Status and Alarms Tab</h3>
-    <p>Health checks — AWS monitors your machine continuously. All three should show ✅ "Check passed":</p>
+    <p>Health checks, AWS monitors your machine continuously. All three should show ✅ "Check passed":</p>
     <ul>
         <li>System status check ✅</li>
         <li>Instance status check ✅</li>
@@ -299,7 +315,7 @@
     <div class="screenshot">
         <!-- SCREENSHOT: Status checks tab -->
         <img src="screenshots/step3b-status.png" alt="Status checks">
-        <p>All checks passed — your machine is healthy</p>
+        <p>All checks passed, your machine is healthy</p>
     </div>
 
     <h3>Monitoring Tab</h3>
@@ -313,8 +329,8 @@
     <h3>Security Tab</h3>
     <p>Shows which "doors" are open on your machine:</p>
     <ul>
-        <li><strong>Port 3389 (RDP)</strong> — allows remote desktop connections</li>
-        <li><strong>Port 80 (HTTP)</strong> — allows web traffic for your website</li>
+        <li><strong>Port 3389 (RDP)</strong>, allows remote desktop connections</li>
+        <li><strong>Port 80 (HTTP)</strong>, allows web traffic for your website</li>
     </ul>
     <div class="screenshot">
         <!-- SCREENSHOT: Security tab with inbound rules -->
@@ -335,7 +351,7 @@
     <div class="screenshot">
         <!-- SCREENSHOT: Storage tab -->
         <img src="screenshots/step3b-storage.png" alt="Storage details">
-        <p>Your virtual hard drive — 30 GiB</p>
+        <p>Your virtual hard drive, 30 GiB</p>
     </div>
 
     <h3>Tags Tab</h3>
@@ -350,86 +366,126 @@
 <!-- STEP 4 -->
 <div class="step">
     <h2>Step 4: Connect to Your Virtual Machine</h2>
-    <p>Now we'll connect to your Windows machine using Remote Desktop — you'll see and control the full Windows desktop from your laptop.</p>
+    <p>Now we'll connect to your Windows machine using Remote Desktop. You'll see and control the full Windows desktop from your laptop.</p>
 
-    <h3>4.1 Get Your Windows Password</h3>
+    <h3>4.1 Get Your Windows Password (everyone does this)</h3>
     <ol>
         <li>Select your instance (checkbox)</li>
         <li>Click <strong>"Actions"</strong> > <strong>"Security"</strong> > <strong>"Get Windows password"</strong></li>
         <li>Click <strong>"Upload private key file"</strong></li>
         <li>Select the <code>.pem</code> file you downloaded earlier</li>
         <li>Click <strong>"Decrypt password"</strong></li>
-        <li><strong>COPY THE PASSWORD</strong> — you'll need it next</li>
+        <li><strong>COPY THE PASSWORD</strong> and save it somewhere (Notepad, sticky note, wherever)</li>
     </ol>
     <div class="screenshot">
-        <!-- SCREENSHOT: Get Windows password - upload key -->
+        <img src="screenshots/step4-get-windows-password.png" alt="Get Windows password menu">
+        <p>Actions > Security > Get Windows password</p>
+    </div>
+    <div class="screenshot">
         <img src="screenshots/step4-upload-key.png" alt="Upload private key">
         <p>Upload your .pem file to decrypt the password</p>
     </div>
     <div class="screenshot">
-        <!-- SCREENSHOT: Decrypted password shown -->
         <img src="screenshots/step4-password-decrypted.png" alt="Password decrypted">
         <p>Copy this password! You'll need it to log in</p>
     </div>
     <div class="info">
-        <strong>⏱️ Note:</strong> The password may take up to 4 minutes to become available after launch. If you see "Password is not available yet", wait and try again.
+        <strong>Note:</strong> The password may take up to 4 minutes to become available after launch. If you see "Password is not available yet", wait and try again.
     </div>
 
-    <h3>4.2 Connect Using Remote Desktop</h3>
+    <h3>4.2 Get Your Public IP Address</h3>
+    <p>You need your instance's Public IP address to connect. Find it in the instance details:</p>
     <ol>
-        <li>Select your instance > Click <strong>"Connect"</strong></li>
+        <li>Click on your instance name in the Instances list</li>
+        <li>In the details panel below, look for <strong>"Public IPv4 address"</strong></li>
+        <li>Copy this IP address (e.g., <code>100.48.99.218</code>)</li>
+    </ol>
+    <div class="screenshot">
+        <img src="screenshots/step4linux-getpublicip" alt="Finding the Public IP address">
+        <p>Find your Public IPv4 address in the instance details panel</p>
+    </div>
+
+    <h3>4.3 Connect from Windows</h3>
+    <p>If you're on a <strong>Windows laptop</strong>, follow these steps:</p>
+    <ol>
+        <li>Go back to your instance, select it, click <strong>"Connect"</strong></li>
         <li>Click the <strong>"RDP client"</strong> tab</li>
         <li>Click <strong>"Download remote desktop file"</strong></li>
         <li>Open the downloaded <code>.rdp</code> file</li>
+        <li>You'll see popups in this order:
+            <ul>
+                <li><strong>"Opening Remote Desktop Connection"</strong> > Click <strong>OK</strong></li>
+                <li><strong>"The identity of the remote computer cannot be verified"</strong> > Click <strong>"Yes"</strong> (this is the certificate warning, it's safe)</li>
+                <li><strong>"Enter your credentials"</strong> > Click "More choices" > "Use a different account" > Username: <code>Administrator</code> > Password: paste the password > Click <strong>OK</strong></li>
+            </ul>
+        </li>
     </ol>
     <div class="screenshot">
-        <!-- SCREENSHOT: Connect page with RDP client tab -->
         <img src="screenshots/step4-connect-rdp.png" alt="RDP client connect page">
         <p>Download the remote desktop file</p>
     </div>
-
-    <p>You'll see several popups — here's what to do with each:</p>
-    <ol start="5">
-        <li><strong>"Opening Remote Desktop Connection"</strong> → Click <strong>OK</strong></li>
-        <li><strong>"Remote Desktop Connection security warning"</strong> → Check <strong>Clipboard</strong>, click <strong>"Connect"</strong></li>
-        <li><strong>"Enter your credentials"</strong> → Click "More choices" > "Use a different account" → Username: <code>Administrator</code> → Password: <strong>paste the password you copied</strong> → Click <strong>OK</strong></li>
-        <li><strong>"Identity cannot be verified"</strong> → Click <strong>"Yes"</strong></li>
-    </ol>
     <div class="screenshot">
-        <!-- SCREENSHOT: Security warning popup -->
-        <img src="screenshots/step4-security-warning.png" alt="Security warning">
-        <p>This is normal — click Connect</p>
+        <img src="screenshots/step4-certificate.png" alt="Certificate warning">
+        <p>Accept the certificate, this is safe since you just created this machine</p>
     </div>
     <div class="screenshot">
-        <!-- SCREENSHOT: Enter credentials popup -->
         <img src="screenshots/step4-credentials.png" alt="Enter credentials">
         <p>Enter Administrator and paste your password</p>
     </div>
+
+    <h3>4.3 Connect from Mac</h3>
+    <p>If you're on a <strong>Mac</strong>:</p>
+    <ol>
+        <li>Open <strong>Microsoft Remote Desktop</strong> (install from App Store if you don't have it)</li>
+        <li>Click <strong>"Add PC"</strong></li>
+        <li>PC name: paste your <strong>Public IP address</strong></li>
+        <li>Click <strong>Add</strong>, then double-click the new connection</li>
+        <li>Username: <code>Administrator</code></li>
+        <li>Password: paste the decrypted password</li>
+        <li>Accept the certificate warning</li>
+    </ol>
+
+    <h3>4.3 Connect from Linux (Remmina)</h3>
+    <p>If you're on a <strong>Linux laptop</strong>, you'll use Remmina (a remote desktop app that's already installed):</p>
+    <ol>
+        <li>Open <strong>Remmina</strong> from your applications menu (or type <code>remmina</code> in terminal)</li>
+    </ol>
     <div class="screenshot">
-        <!-- SCREENSHOT: Certificate warning -->
-        <img src="screenshots/step4-certificate.png" alt="Certificate warning">
-        <p>Click Yes — this is safe, you just created this machine</p>
+        <img src="screenshots/step4linux-reminnainstalled" alt="Remmina Remote Desktop Client open">
+        <p>Remmina is already installed. Make sure the dropdown says RDP.</p>
+    </div>
+    <ol start="2">
+        <li>Make sure the protocol dropdown (top-left) shows <strong>RDP</strong></li>
+        <li>In the address bar at the top, type your <strong>Public IP address</strong> (e.g., <code>100.48.99.218</code>)</li>
+        <li>Press <strong>Enter</strong> to connect</li>
+        <li>A certificate warning will appear first. Click <strong>"Yes"</strong> or <strong>"Accept"</strong> to continue</li>
+        <li>Then enter your credentials:
+            <ul>
+                <li>Username: <code>Administrator</code></li>
+                <li>Password: paste the decrypted password</li>
+                <li>Domain: leave empty</li>
+            </ul>
+        </li>
+        <li>Click <strong>OK</strong></li>
+    </ol>
+    <div class="screenshot">
+        <img src="screenshots/step4linux-entercredentials" alt="Remmina enter credentials">
+        <p>Enter Administrator and your decrypted password, leave Domain empty</p>
     </div>
 
     <div class="success">
         🎉 <strong>You should now see the Windows Server desktop!</strong> This is a real computer running in an AWS data center in the USA. You are controlling it from your laptop in Nairobi.
     </div>
     <div class="screenshot">
-        <!-- SCREENSHOT: Windows desktop visible via RDP -->
         <img src="screenshots/step4-windows-desktop.png" alt="Windows Server desktop">
         <p>Welcome to your virtual machine in the cloud!</p>
-    </div>
-
-    <div class="info">
-        <strong>🍎 Mac Users:</strong> The .rdp file opens in Microsoft Remote Desktop (install from App Store beforehand). Enter Administrator and the password when prompted.<br><br>
-        <strong>🐧 Linux Users:</strong> Open Remmina, select RDP, enter your instance's Public IP, username: Administrator, password: the decrypted one.
     </div>
 </div>
 
 <!-- STEP 5 -->
 <div class="step">
     <h2>Step 5: Deploy the AfChix Market Website</h2>
-    <p>Now for the coolest part — you'll install a web server and deploy a real shopping website. Anyone in the world will be able to see it!</p>
+    <p>Now for the coolest part, you'll install a web server and deploy a real shopping website. Anyone in the world will be able to see it!</p>
 
     <h3>5.1 Open PowerShell</h3>
     <p>On your Windows remote desktop, click the <strong>Start menu</strong> and find <strong>"Windows PowerShell"</strong> (blue icon).</p>
@@ -445,13 +501,13 @@
     <h3>5.2 Install IIS (Web Server)</h3>
     <p>Type this command and press <strong>Enter</strong>:</p>
     <pre>Install-WindowsFeature -name Web-Server -IncludeManagementTools</pre>
-    <p><strong>What this does:</strong> Installs IIS (Internet Information Services) — Microsoft's web server software. Without it, your machine wouldn't know how to serve web pages to visitors.</p>
+    <p><strong>What this does:</strong> Installs IIS (Internet Information Services), Microsoft's web server software. Without it, your machine wouldn't know how to serve web pages to visitors.</p>
     <p>Wait 1-2 minutes. You'll see <strong>"Success: True"</strong> when done.</p>
 
     <h3>5.3 Download the Website</h3>
     <p>Type this command:</p>
     <pre>Invoke-WebRequest -Uri "https://github.com/kira-PJ/afchix-cloud-workshop/archive/refs/heads/main.zip" -OutFile "C:\website.zip"</pre>
-    <p><strong>What this does:</strong> Goes to GitHub (where our website code is stored), downloads it as a zip file, and saves it to the server. Like downloading a file from the internet — but via command line.</p>
+    <p><strong>What this does:</strong> Goes to GitHub (where our website code is stored), downloads it as a zip file, and saves it to the server. Like downloading a file from the internet, but via command line.</p>
 
     <h3>5.4 Extract the Files</h3>
     <pre>Expand-Archive -Path "C:\website.zip" -DestinationPath "C:\website" -Force</pre>
@@ -459,7 +515,7 @@
 
     <h3>5.5 Copy to Web Server Folder</h3>
     <pre>Copy-Item -Path "C:\website\afchix-cloud-workshop-main\*" -Destination "C:\inetpub\wwwroot\" -Recurse -Force</pre>
-    <p><strong>What this does:</strong> Copies all website files into IIS's special folder (<code>C:\inetpub\wwwroot\</code>). Anything placed here automatically becomes a live website. Like putting products on the shelf in your shop — once they're there, customers can see them.</p>
+    <p><strong>What this does:</strong> Copies all website files into IIS's special folder (<code>C:\inetpub\wwwroot\</code>). Anything placed here automatically becomes a live website. Like putting products on the shelf in your shop, once they're there, customers can see them.</p>
     
     <div class="screenshot">
         <!-- SCREENSHOT: PowerShell showing all commands completed -->
@@ -484,7 +540,7 @@
         <p>YOUR website, hosted on YOUR virtual machine, live on the internet!</p>
     </div>
     <div class="analogy">
-        💡 Notice the IP address in the browser bar — this is your machine's address on the internet. If you shared this IP with a friend in another country, they could see this website too. This is exactly how real websites work!
+        💡 Notice the IP address in the browser bar, this is your machine's address on the internet. If you shared this IP with a friend in another country, they could see this website too. This is exactly how real websites work!
     </div>
 
     <h3>5.7 Personalize Your Website (Make it Yours!)</h3>
@@ -492,8 +548,8 @@
     <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by YourName at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
     <p><strong>Example:</strong> If your name is Grace:</p>
     <pre>(Get-Content "C:\inetpub\wwwroot\index.html") -replace "Built by AfChix Workshop Participants", "Built by Grace at AfChix Workshop" | Set-Content "C:\inetpub\wwwroot\index.html"</pre>
-    <p><strong>What this does:</strong> Opens the website file, finds specific text, replaces it with your name, and saves. This is real web development — editing a live website!</p>
-    <p>Now <strong>refresh your browser</strong> — you'll see your name on the pink badge! 📸 <strong>Take a screenshot!</strong></p>
+    <p><strong>What this does:</strong> Opens the website file, finds specific text, replaces it with your name, and saves. This is real web development, editing a live website!</p>
+    <p>Now <strong>refresh your browser</strong>, you'll see your name on the pink badge! 📸 <strong>Take a screenshot!</strong></p>
 </div>
 
 <!-- STEP 6 -->
@@ -514,7 +570,7 @@
     <div class="screenshot">
         <!-- SCREENSHOT: Terminate confirmation dialog -->
         <img src="screenshots/step6-terminate-confirm.png" alt="Terminate confirmation">
-        <p>Confirm termination — your machine will be deleted</p>
+        <p>Confirm termination, your machine will be deleted</p>
     </div>
     <div class="warning">
         💰 <strong>Why this matters:</strong> A t3.medium costs ~$0.04/hour = ~$30/month if you forget. In the real world, forgetting to terminate is how people get surprise AWS bills!
@@ -534,11 +590,11 @@
         <li>✅ Personalized it with your name</li>
         <li>✅ Cleaned up your cloud resources</li>
     </ul>
-    <p>You now understand the basics of cloud computing. This is what cloud engineers, DevOps engineers, and solutions architects do every day — just with bigger, more complex systems.</p>
+    <p>You now understand the basics of cloud computing. This is what cloud engineers, DevOps engineers, and solutions architects do every day, just with bigger, more complex systems.</p>
     
     <h3>What's next?</h3>
     <ul>
-        <li>Create your own free AWS account (aws.amazon.com — free tier available for 12 months)</li>
+        <li>Create your own free AWS account (aws.amazon.com, free tier available for 12 months)</li>
         <li>Start with the <strong>AWS Cloud Practitioner</strong> certification</li>
         <li>Join the <strong>AWS User Group Kenya</strong> community</li>
     </ul>
@@ -555,14 +611,14 @@
         <tr><td>Wrong password</td><td>Make sure you uploaded the correct .pem file</td></tr>
         <tr><td>Website not loading</td><td>Check you enabled "Allow HTTP traffic" during launch. Use http:// not https://</td></tr>
         <tr><td>RDP file doesn't open (Mac)</td><td>Install Microsoft Remote Desktop from App Store first</td></tr>
-        <tr><td>Instance won't launch</td><td>Ask the trainer — might be a quota issue</td></tr>
+        <tr><td>Instance won't launch</td><td>Ask the trainer, might be a quota issue</td></tr>
     </table>
 </div>
 
 </div><!-- end container -->
 
 <footer>
-    <p>AfChix Women in Tech Workshop | June 26, 2026 | Nairobi, Kenya</p>
+    <p>AfChix Women in Tech Workshop | July 16, 2026 | Nairobi, Kenya</p>
     <p>Trainer: Pauline Namwakira | AWS Golden Jacket Holder</p>
 </footer>
 
