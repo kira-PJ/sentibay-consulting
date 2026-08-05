@@ -4,10 +4,8 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { href: "/about", label: "About Us" },
-  { href: "/courses", label: "Exam Prep" },
-  { href: "/training", label: "Corporate Training" },
-  { href: "/consulting", label: "Consulting" },
+  { href: "/courses", label: "Courses" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Navbar() {
@@ -52,12 +50,6 @@ export default function Navbar() {
           >
             Start Learning
           </a>
-          <Link
-            href="/consulting"
-            className="ml-1 bg-[#1E3A8A] hover:bg-[#1e40af] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-150 shadow-sm hover:shadow-md hover:-translate-y-px"
-          >
-            Get in Touch
-          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -90,13 +82,6 @@ export default function Navbar() {
           >
             Start Learning
           </a>
-          <Link
-            href="/consulting"
-            onClick={() => setOpen(false)}
-            className="mt-1 bg-[#1E3A8A] text-white text-sm font-semibold px-5 py-3 rounded-xl text-center"
-          >
-            Get in Touch
-          </Link>
         </div>
       )}
     </nav>

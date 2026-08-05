@@ -8,18 +8,18 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"] });
 
 export const metadata: Metadata = {
-  title: "SentiBay Consulting | AWS Cloud Training & Consulting",
-  description: "Technology training and cloud consulting for professionals and teams worldwide. AWS certification prep, corporate training, and cloud architecture consulting delivered globally by AWS Authorized Instructors.",
+  title: "SentiBay | Self-Paced AWS Cloud Courses",
+  description: "Learn AWS at your own pace with structured, recorded courses taught by an AWS Authorized Instructor with 13 certifications. From Cloud Practitioner to Professional level.",
   metadataBase: new URL("https://sentibay.com"),
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "SentiBay Consulting | AWS Cloud Training & Consulting",
-    description: "Technology training and cloud consulting for professionals and teams worldwide.",
+    title: "SentiBay | Self-Paced AWS Cloud Courses",
+    description: "Learn AWS at your own pace with structured, recorded courses taught by an AWS Authorized Instructor with 13 certifications.",
     url: "https://sentibay.com",
-    siteName: "SentiBay Consulting",
+    siteName: "SentiBay",
     type: "website",
   },
 };
@@ -34,10 +34,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
-              name: "SentiBay Consulting",
+              name: "SentiBay",
               url: "https://sentibay.com",
               logo: "https://sentibay.com/images/sentibaylight.png",
-              description: "Technology training and cloud consulting for professionals and teams worldwide.",
+              description: "Self-paced AWS cloud courses and certification prep taught by an AWS Authorized Instructor.",
               founder: {
                 "@type": "Person",
                 name: "Pauline Namwakira",

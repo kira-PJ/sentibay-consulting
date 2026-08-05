@@ -31,11 +31,11 @@ export default function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E3A8A] text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-7">
               <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse" />
-              Cloud Training &amp; Consulting
+              Self-Paced Cloud Courses
             </div>
 
             <h1 className="text-5xl lg:text-[64px] font-extrabold text-[#0F172A] leading-[1.05] tracking-tight mb-6">
-              Train.{" "}
+              Learn.{" "}
               <span
                 style={{
                   background: "linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #059669 100%)",
@@ -51,9 +51,9 @@ export default function Hero() {
             </h1>
 
             <p className="text-slate-600 text-lg leading-relaxed mb-10 max-w-lg">
-              SentiBay Consulting prepares individuals and teams for every AWS certification.
-              Live virtual training, corporate on-site programs, and cloud consulting
-              delivered globally by AWS Authorized Instructors.
+              Learn AWS at your own pace with structured, recorded courses
+              taught by an AWS Authorized Instructor with 13 certifications.
+              From Cloud Practitioner to Professional level.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -61,13 +61,13 @@ export default function Hero() {
                 href="https://learn.sentibay.com"
                 className="inline-flex items-center gap-2 bg-[#059669] hover:bg-[#047857] text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/20 hover:-translate-y-0.5"
               >
-                Start Learning <ArrowRight size={16} />
+                Browse Courses <ArrowRight size={16} />
               </a>
               <Link
-                href="/consulting"
+                href="/about"
                 className="inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#1e40af] text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-blue-900/20 hover:-translate-y-0.5"
               >
-                Contact Us
+                About Me
               </Link>
             </div>
           </div>

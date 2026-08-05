@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -14,15 +13,15 @@ export default function CTABanner() {
           Ready to get certified?
         </h2>
         <p className="text-lg text-slate-300 mb-10 max-w-xl mx-auto leading-relaxed">
-          Whether you are preparing for your first AWS exam, upskilling your team, or need
-          cloud consulting support, we are here to help.
+          Self-paced courses taught by an AWS Authorized Instructor.
+          Study on your schedule, pass on your first attempt.
         </p>
-        <Link
-          href="/consulting"
+        <a
+          href="https://learn.sentibay.com"
           className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#1E3A8A] font-semibold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg hover:-translate-y-0.5 hover:shadow-xl"
         >
-          Get in Touch <ArrowRight size={16} />
-        </Link>
+          Browse Courses <ArrowRight size={16} />
+        </a>
       </ScrollReveal>
     </section>
   );

@@ -47,7 +47,7 @@ export default function AboutPage() {
               />
               <div className="absolute bottom-4 left-4 right-4 bg-[#0F172A]/80 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/10 z-20">
                 <p className="text-white font-semibold text-sm">Pauline Namwakira</p>
-                <p className="text-slate-400 text-xs mt-0.5">Co-Founder &amp; Senior Technical Trainer</p>
+                <p className="text-slate-400 text-xs mt-0.5">AWS Authorized Instructor</p>
               </div>
             </div>
           </div>
@@ -57,16 +57,16 @@ export default function AboutPage() {
       {/* ── Mission and Vision ── */}
       <MissionVision />
 
-      {/* ── Leadership ── */}
+      {/* ── About Pauline ── */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
-              Leadership
+              Your Instructor
             </h2>
-            <p className="text-slate-600 text-lg">The people behind SentiBay Consulting.</p>
+            <p className="text-slate-600 text-lg">The person behind SentiBay.</p>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-2xl mx-auto">
             {leadership.map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 100}>
                 <LeadershipCard member={member} />

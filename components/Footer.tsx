@@ -16,7 +16,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-slate-400 leading-relaxed max-w-sm">
-              Technology training and cloud consulting for professionals and teams worldwide.
+              Self-paced cloud courses and AWS certification prep taught by an AWS Authorized Instructor.
             </p>
             <div className="flex gap-3 mt-6">
               <a
@@ -46,10 +46,8 @@ export default function Footer() {
             <ul className="flex flex-col gap-2.5 text-sm">
               {[
                 { href: "/", label: "Home" },
-                { href: "/about", label: "About Us" },
-                { href: "/courses", label: "Exam Prep Courses" },
-                { href: "/training", label: "Corporate Training" },
-                { href: "/consulting", label: "Consulting" },
+                { href: "/courses", label: "Courses" },
+                { href: "/about", label: "About" },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-slate-400 hover:text-white transition-colors">
@@ -57,16 +55,21 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a href="https://learn.sentibay.com" className="text-slate-400 hover:text-white transition-colors">
+                  Start Learning
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold text-sm mb-4">Services</h3>
+            <h3 className="text-white font-semibold text-sm mb-4">Courses</h3>
             <ul className="flex flex-col gap-2.5 text-sm text-slate-400">
-              <li>AWS Certification Prep</li>
-              <li>Corporate Cloud Training</li>
-              <li>Cloud Consulting</li>
+              <li>AWS Cloud Practitioner</li>
+              <li>Solutions Architect Associate</li>
+              <li>AI Practitioner</li>
               <li>Generative AI on AWS</li>
             </ul>
 
