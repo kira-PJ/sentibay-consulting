@@ -14,7 +14,9 @@ export async function POST(req: NextRequest) {
     }
 
     // Read env vars — using APP_AWS_* prefix to avoid conflict with Amplify reserved vars
-    const region = process.env.APP_AWS_REGION ?? "us-west-2";
+    // DynamoDB (sentibay-inquiries) and SES live in us-west-2; APP_AWS_REGION may be
+    // us-east-1 for Bedrock, so use a dedicated region var here.
+    const region = process.env.INQUIRIES_REGION ?? "us-west-2";
     const accessKeyId = process.env.APP_AWS_ACCESS_KEY_ID;
     const secretAccessKey = process.env.APP_AWS_SECRET_ACCESS_KEY;
     const tableName = process.env.DYNAMODB_TABLE_INQUIRIES;
