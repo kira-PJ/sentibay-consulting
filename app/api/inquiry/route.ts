@@ -21,13 +21,11 @@ export async function POST(req: NextRequest) {
     const fromEmail = process.env.SES_FROM_EMAIL;
     const notifyEmail = process.env.SES_NOTIFY_EMAIL ?? fromEmail;
 
-    if (!accessKeyId || !secretAccessKey) {
-      console.error("AWS credentials not configured");
-      return NextResponse.json({ error: "AWS credentials not configured" }, { status: 500 });
+    // Explicit keys for local dev; otherwise default provider chain (Amplify compute role).
+    const clientConfig: Record<string, unknown> = { region };
+    if (accessKeyId && secretAccessKey) {
+      clientConfig.credentials = { accessKeyId, secretAccessKey };
     }
-
-    const credentials = { accessKeyId, secretAccessKey };
-    const clientConfig = { region, credentials };
 
     const dynamo = DynamoDBDocumentClient.from(new DynamoDBClient(clientConfig));
     const ses = new SESClient(clientConfig);
